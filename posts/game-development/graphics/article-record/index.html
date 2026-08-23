@@ -216,8 +216,64 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#游戏引擎" id="toc-游戏引擎" class="nav-link active" data-scroll-target="#游戏引擎">游戏引擎</a>
+  <ul class="collapse">
+  <li><a href="#unreal" id="toc-unreal" class="nav-link" data-scroll-target="#unreal">unreal</a></li>
+  <li><a href="#unity" id="toc-unity" class="nav-link" data-scroll-target="#unity">unity</a></li>
+  </ul></li>
+  <li><a href="#渲染" id="toc-渲染" class="nav-link" data-scroll-target="#渲染">渲染</a>
+  <ul class="collapse">
+  <li><a href="#图形渲染管线" id="toc-图形渲染管线" class="nav-link" data-scroll-target="#图形渲染管线">1. <strong>图形渲染管线</strong></a></li>
+  <li><a href="#辐射度量学" id="toc-辐射度量学" class="nav-link" data-scroll-target="#辐射度量学">2. 辐射度量学</a></li>
+  <li><a href="#基于物理的渲染pbr" id="toc-基于物理的渲染pbr" class="nav-link" data-scroll-target="#基于物理的渲染pbr">3. 基于物理的渲染(PBR)</a></li>
+  <li><a href="#光照模型" id="toc-光照模型" class="nav-link" data-scroll-target="#光照模型">4. 光照模型</a></li>
+  <li><a href="#全局光照" id="toc-全局光照" class="nav-link" data-scroll-target="#全局光照">5. 全局光照</a></li>
+  <li><a href="#抗锯齿" id="toc-抗锯齿" class="nav-link" data-scroll-target="#抗锯齿">6. 抗锯齿</a></li>
+  <li><a href="#阴影" id="toc-阴影" class="nav-link" data-scroll-target="#阴影">7. 阴影</a></li>
+  <li><a href="#延迟渲染" id="toc-延迟渲染" class="nav-link" data-scroll-target="#延迟渲染">8. 延迟渲染</a></li>
+  <li><a href="#纹理贴图" id="toc-纹理贴图" class="nav-link" data-scroll-target="#纹理贴图">9. 纹理贴图</a></li>
+  <li><a href="#空间加速结构算法" id="toc-空间加速结构算法" class="nav-link" data-scroll-target="#空间加速结构算法">10. 空间加速结构&amp;算法</a></li>
+  <li><a href="#杂项" id="toc-杂项" class="nav-link" data-scroll-target="#杂项">11. 杂项</a></li>
+  <li><a href="#优化" id="toc-优化" class="nav-link" data-scroll-target="#优化">12. 优化</a></li>
+  <li><a href="#sdf相关" id="toc-sdf相关" class="nav-link" data-scroll-target="#sdf相关">13 SDF相关</a></li>
+  <li><a href="#剔除" id="toc-剔除" class="nav-link" data-scroll-target="#剔除">14 剔除</a></li>
+  <li><a href="#vulkan" id="toc-vulkan" class="nav-link" data-scroll-target="#vulkan">15 Vulkan</a></li>
+  <li><a href="#directx" id="toc-directx" class="nav-link" data-scroll-target="#directx">16 DirectX</a></li>
+  <li><a href="#metal" id="toc-metal" class="nav-link" data-scroll-target="#metal">17 metal</a></li>
+  <li><a href="#后处理" id="toc-后处理" class="nav-link" data-scroll-target="#后处理">18 后处理</a></li>
+  <li><a href="#npr" id="toc-npr" class="nav-link" data-scroll-target="#npr">19 NPR</a></li>
+  <li><a href="#tbr" id="toc-tbr" class="nav-link" data-scroll-target="#tbr">20 TBR</a></li>
+  <li><a href="#gpu硬件相关" id="toc-gpu硬件相关" class="nav-link" data-scroll-target="#gpu硬件相关">21 GPU硬件相关</a></li>
+  <li><a href="#颜色" id="toc-颜色" class="nav-link" data-scroll-target="#颜色">22 颜色</a></li>
+  <li><a href="#compute-shader" id="toc-compute-shader" class="nav-link" data-scroll-target="#compute-shader">23 compute shader</a></li>
+  <li><a href="#gems" id="toc-gems" class="nav-link" data-scroll-target="#gems">24 Gems</a></li>
+  <li><a href="#cuda" id="toc-cuda" class="nav-link" data-scroll-target="#cuda">25 CUDA</a></li>
+  <li><a href="#其它内容" id="toc-其它内容" class="nav-link" data-scroll-target="#其它内容">其它内容</a></li>
+  </ul></li>
+  <li><a href="#动画" id="toc-动画" class="nav-link" data-scroll-target="#动画">动画</a></li>
+  <li><a href="#图形相关数学" id="toc-图形相关数学" class="nav-link" data-scroll-target="#图形相关数学">图形相关数学</a>
+  <ul class="collapse">
+  <li><a href="#光线与物体相交求交点" id="toc-光线与物体相交求交点" class="nav-link" data-scroll-target="#光线与物体相交求交点">光线与物体相交求交点</a></li>
+  <li><a href="#傅里叶变换" id="toc-傅里叶变换" class="nav-link" data-scroll-target="#傅里叶变换">傅里叶变换</a></li>
+  <li><a href="#采样" id="toc-采样" class="nav-link" data-scroll-target="#采样">采样</a></li>
+  </ul></li>
+  <li><a href="#油管博主" id="toc-油管博主" class="nav-link" data-scroll-target="#油管博主">油管博主</a>
+  <ul class="collapse">
+  <li><a href="#simondev-gpgraphics-programmer" id="toc-simondev-gpgraphics-programmer" class="nav-link" data-scroll-target="#simondev-gpgraphics-programmer">SimonDev GP(graphics programmer)</a></li>
+  <li><a href="#blue1brown" id="toc-blue1brown" class="nav-link" data-scroll-target="#blue1brown">3Blue1Brown</a></li>
+  <li><a href="#the-julia-programming-language" id="toc-the-julia-programming-language" class="nav-link" data-scroll-target="#the-julia-programming-language">The Julia Programming Language</a></li>
+  <li><a href="#physics-videos-by-eugene-khutoryansky" id="toc-physics-videos-by-eugene-khutoryansky" class="nav-link" data-scroll-target="#physics-videos-by-eugene-khutoryansky"><strong>Physics Videos by Eugene Khutoryansky</strong></a></li>
+  <li><a href="#reducible" id="toc-reducible" class="nav-link" data-scroll-target="#reducible">Reducible</a></li>
+  </ul></li>
+  <li><a href="#不错的语雀" id="toc-不错的语雀" class="nav-link" data-scroll-target="#不错的语雀">不错的语雀</a></li>
+  <li><a href="#好的分享" id="toc-好的分享" class="nav-link" data-scroll-target="#好的分享">好的分享</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -241,8 +297,2080 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="游戏引擎" class="level2">
+<h2 class="anchored" data-anchor-id="游戏引擎">游戏引擎</h2>
+<p>李思特Think wx公众号</p>
+<ul>
+<li>游戏引擎史话
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/XVLvJeA4HoGnovKXBIx0_A">游戏引擎史话：第1章 射线投射与早期3D游戏的兴起</a></li>
+<li><a href="https://mp.weixin.qq.com/s/MRNEhV4I459dx8k2GSK5rw">第2章 用户创作内容与游戏制作工具的演进</a></li>
+</ul></li>
+</ul>
+<p>游戏开发技术教程 wx公众号</p>
+<p>内核观察 wx公众号</p>
+<section id="unreal" class="level3">
+<h3 class="anchored" data-anchor-id="unreal">unreal</h3>
+<p><a href="https://www.tomlooman.com/unreal-engine-cpp-guide/">Unreal Engine C++ Complete Guide</a></p>
+<p><a href="https://www.unrealengine.com/en-US/blog/unreal-property-system-reflection">Unreal Property System (Reflection)</a></p>
+<p><a href="https://dev.epicgames.com/community/learning/courses/mLX/unreal-engine-fundamentals-of-materials/8B2Y/unreal-engine-fundamentals-of-materials-overview">Fundamentals of Materials</a></p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine">Physically Based Materials</a></p>
+<p><a href="https://www.unrealengine.com/en-US/blog/collision-filtering">Collision Filtering</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/84205583">UE4虚幻引擎学习云笔记-目录</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/67233188">游戏引擎随笔</a></p>
+<ul>
+<li><a href="https://www.cnblogs.com/timlly/p/13512787.html">剖析虚幻渲染体系-开篇说明</a>
+<ul>
+<li><a href="https://www.cnblogs.com/timlly/p/13877623.html">剖析虚幻渲染体系（01）- 综述和基础</a></li>
+</ul></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22813908">《InsideUE4》目录</a>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/22814051?refer=gameengine">《InsideUE4》开篇</a> 推荐的链接</li>
+</ul></li>
+<li>[大象无形UE4笔记]</li>
+</ul>
+<p><a href="https://blog.6ag.cn/3821.html">UE4碰撞检测和射线检测</a></p>
+<p><a href="https://www.cnblogs.com/lixiao24/p/9325211.html">UE4 游戏模块初始化顺序</a></p>
+<p><a href="https://www.cnblogs.com/biu-we/p/13604795.html">UE4 行为树与EQS</a></p>
+<p><a href="https://www.cnblogs.com/Qiu-Bai/p/17180550.html">斯坦福课程 UE4 C++ ActionRoguelike游戏实例教程</a></p>
+<ul>
+<li><strong>Alex Forsythe</strong>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=TXZGIvpEhW8">What do you do when Unreal Editor crashes?</a></li>
+<li><a href="https://www.youtube.com/watch?v=sYw0xd5mr7E">The Roots of Unreal Engine 4: Game Engines from 2006 to Today</a></li>
+<li><a href="https://www.youtube.com/watch?v=IaU2Hue-ApI">The Unreal Engine Game Framework: From int main() to BeginPlay</a> <strong>讲的很好</strong></li>
+<li><a href="https://www.youtube.com/watch?v=iQ3c-lrHO7o">Unreal vs.&nbsp;Unity: Actors &amp; Components, Inheritance &amp; Composition</a></li>
+<li><a href="https://www.youtube.com/watch?v=VMZftEVDuCE">Blueprints vs.&nbsp;C++: How They Fit Together and Why You Should Use Both</a></li>
+<li><a href="https://www.youtube.com/watch?v=JOJP0CvpB8w">Multiplayer in Unreal Engine: How to Understand Network Replication</a></li>
+</ul></li>
+</ul>
+<p><a href="https://neil3d.github.io/unreal/vr-summit.html"><strong>虚幻4渲染系统架构解析</strong></a> 房燕良</p>
+<ul>
+<li><p><a href="https://zhuanlan.zhihu.com/p/36675543">虚幻4渲染编程专题概述及目录</a> <a href="https://www.zhihu.com/people/SuperPandaGX">YivanLee</a></p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/81011375">虚幻4渲染编程(Shader篇)【第十四卷：PreZ And EarlyZ In UE4】</a></li>
+</ul></li>
+<li><p><a href="https://medium.com/@lordned?source=post_page---byline--c47f2da65346--------------------------------">Matt Hoffman</a></p>
+<ul>
+<li><p><a href="https://medium.com/@lordned/unreal-engine-4-rendering-overview-part-1-c47f2da65346">Unreal Engine 4 Rendering Part 1: Introduction</a></p></li>
+<li><p><a href="https://medium.com/@lordned/unreal-engine-4-rendering-part-2-shaders-and-vertex-data-80317e1ae5f3">Unreal Engine 4 Rendering Part 2: Shaders and Vertex Data</a></p></li>
+</ul></li>
+</ul>
+<p><a href="https://blog.csdn.net/u010042660/article/details/132080908">Unreal Engine 各种编译运行模式的区别和应用场景</a></p>
+<ul>
+<li><p><a href="https://interplayoflight.wordpress.com/">Interplay of Light</a></p>
+<ul>
+<li><p><a href="https://interplayoflight.wordpress.com/2017/10/25/how-unreal-renders-a-frame/">How Unreal Renders a Frame</a></p></li>
+<li><p><a href="https://interplayoflight.wordpress.com/2017/10/25/how-unreal-renders-a-frame-part-2/">How Unreal Renders a Frame part 2</a></p></li>
+<li><p><a href="https://interplayoflight.wordpress.com/2017/10/25/how-unreal-renders-a-frame-part-3/">How Unreal Renders a Frame part 3</a></p></li>
+</ul></li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=PTFrpcScPaU">UE5：如何消除多人游戏中的客户端延迟</a></p>
+<p><a href="https://www.youtube.com/watch?v=W6OeKCil4Ug">SUBSYSTEMS for Unreal Engine in C++ in 5 Minutes!</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/121719442">[译]Real Shading in Unreal Engine 4（UE4中的真实渲染)(1)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/125459331">[译]Real Shading in Unreal Engine 4（UE4中的真实渲染)(2)</a></p>
+<p><a href="https://www.zhihu.com/column/c_1535217822816309248">《大象无形：虚幻引擎程序设计浅析》 笔记</a></p>
+</section>
+<section id="unity" class="level3">
+<h3 class="anchored" data-anchor-id="unity">unity</h3>
+<p><a href="https://www.youtube.com/watch?v=JEjAeDgUlNE">6 Hours of Unity 6 - Celebrating Key Pillars of Unity 6!</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20241128163720063.png" class="img-fluid figure-img"></p>
+<figcaption>image-20241128163720063</figcaption>
+</figure>
+</div>
+<ul>
+<li>Graphics rendering: Getting the best performance with Unity 6 | Unite 2024[https://www.youtube.com/watch?v=Oc6T4hh5gaI]</li>
+</ul>
+<p><a href="https://space.bilibili.com/1311706157/lists">Metaverse大衍神君</a></p>
+<ul>
+<li><p><a href="https://space.bilibili.com/1311706157/channel/collectiondetail?sid=1923424">合集·Unity6新功能</a></p>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1394y1n7Vf/?spm_id_from=333.999.0.0&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">Unity6新功能——URP管线下的 RenderGraph介绍</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1mG411X7bC/?spm_id_from=333.788.videopod.sections&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">Unity6 新功能 GpuDriven渲染——GPU Resident Drawer 开盒即用</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1Nj411L7Tk?spm_id_from=333.788.videopod.sections&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">Unity6新功能——WebGPU Backend</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1hH4y1k7hW?spm_id_from=333.788.videopod.sections&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">Unity6新功能——URP下的HDR Display Output</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1ju4y1u7fU?spm_id_from=333.788.videopod.sections&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">Unity6新功能——GPU Driven渲染Tier1——GPU Occlusion Culling</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1cG411Y7Dp/?spm_id_from=333.788.videopod.sections&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">Unity6新功能——Scalable Temporal Post-Processing (STP)</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1Rb4y1G7XM">Unity6新功能——Batched Compute Skinning</a></p></li>
+</ul></li>
+<li><p><a href="https://www.bilibili.com/read/readlist/rl511863?spm_id_from=333.999.0.0">《Unity性能优化》系列课程笔记</a></p>
+<ul>
+<li><a href="https://www.bilibili.com/read/cv17204283/">合批（Batching）的限制与失败原因汇总</a></li>
+</ul></li>
+<li><p><a href="https://space.bilibili.com/1311706157/lists/3187703?type=season">合集·技术美术</a></p>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV1BZ421u7uj/?spm_id_from=333.1387.collection.video_card.click&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">一个视频说清楚PBR下的 Metallic工作流与Specular工作流</a> 介绍了工作流使用的贴图的不同通道</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20250512110053206.png" class="img-fluid figure-img"></p>
+<figcaption>image-20250512110053206</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20250512110111967.png" class="img-fluid figure-img"></p>
+<figcaption>image-20250512110111967</figcaption>
+</figure>
+</div></li>
+<li></li>
+</ul></li>
+<li><p><a href="https://learnopengl.com/">LearnOpengl</a></p>
+<ol start="6" type="1">
+<li>PBR
+<ol type="1">
+<li><a href="http://blog.selfshadow.com/publications/s2013-shading-course/hoffman/s2013_pbs_physics_math_notes.pdf">Background: Physics and Math of Shading by Naty Hoffmann</a>: there is too much theory to fully discuss in a single article so the theory here barely scratches the surface; if you want to know more about the physics of light and how it relates to the theory of PBR <strong>this</strong> is the resource you want to read.</li>
+<li><a href="http://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf">Real shading in Unreal Engine 4</a>: discusses the PBR model adopted by Epic Games in their 4th Unreal Engine installment. The PBR system we’ll focus on in these chapters is based on this model of PBR.</li>
+</ol></li>
+</ol></li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=_kda6k_WIqY">【阿空】一次搞懂 Unity DOTS 與 JobSystem！ ( Unity DOTS and JobSystem! )</a></p>
+<p><a href="https://www.youtube.com/watch?v=_kda6k_WIqY">【阿空】Unity ECS 概念與基本操作！ ( 2022 Unity ECS v0.51)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/432223843?utm_id=0">Unity渲染优化的4种批处理：静态批处理，动态批处理，SRP Batcher 与 GPU Instancing</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/98642798/?utm_id=0">关于静态批处理/动态批处理/GPU Instancing /SRP Batcher的详细剖析</a></p>
+<p><a href="https://catlikecoding.com/unity/tutorials/">catlike unity</a></p>
+<ul>
+<li><ol start="11" type="1">
+<li><a href="https://catlikecoding.com/unity/tutorials/custom-srp/custom-render-pipeline/">Custom Render Pipeline</a></li>
+</ol></li>
+<li></li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=pq3QokizOTQ">The Unity Engine Roadmap</a></p>
+<p><a href="https://www.youtube.com/watch?v=TadwBXsVFsU">Quick dive into Unity ECS on a gravity system example</a></p>
+<p><a href="https://www.youtube.com/watch?v=wG2Y42qArHY">Why ECS is so efficient? Object-oriented vs Data-oriented design</a></p>
+<p><a href="https://www.youtube.com/watch?v=trdeAq3WPkQ">Graphics Features and Tools in Unity 6 Feel Like MAGIC! STP, Resident Drawer, and Occlusion Culling!</a></p>
+</section>
+</section>
+<section id="渲染" class="level2">
+<h2 class="anchored" data-anchor-id="渲染">渲染</h2>
+<p>GPU resident drawer</p>
+<p>STP Spatial-Temporal Post-Processing Upscaler</p>
+<p>SSS subsurface scattering</p>
+<p>ILC 亮度限制 UE4中表达SH3光照名字叫间接光照缓存(IndirectLightingCache)</p>
+<p>HBAO Nvidia Horizon-Based Ambient Occlusion</p>
+<p>GTAO Ground Truth-based Ambient Occlusion</p>
+<p>TLOD Terrain Level of Detail</p>
+<p>TOD</p>
+<p>PSO Cache Pipeline State Object Caching</p>
+<p><a href="https://zhuanlan.zhihu.com/p/430541328?utm_id=0">【游戏开发面经汇总】- 图形学基础篇</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/8729305120">【游戏开发面经汇总】-社招初级篇</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26409746">卡通渲染及其相关技术</a> <strong>洛城 好多引用</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/53086060">【基于物理的渲染（PBR）白皮书】（一） 开篇：PBR核心知识体系总结与概览</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26259772">【《Real-Time Rendering 3rd》 提炼总结】(一) 全书知识点总览</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26527776">【《Real-Time Rendering 3rd》 提炼总结】(二) 第二章 · 图形渲染管线 The Graphics Rendering Pipeline</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26894962">【《Real-Time Rendering 3rd》 提炼总结】(三) 第三章 · GPU渲染管线与可编程着色器</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/27234482">【《Real-Time Rendering 3rd》 提炼总结】(四) 第五章 · 图形渲染与视觉外观 The Visual Appearance</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/27551369">【《Real-Time Rendering 3rd》 提炼总结】(五) 第六章 · 纹理贴图及相关技术</a></p>
+<blockquote class="blockquote">
+<p><a href="https://link.zhihu.com/?target=http%3A//www.ixueshu.com/document/3dc4369a761ca0d6318947a18e7f9386.html">Relief mapping:凹凸贴图的极致</a>，而如果要用一句话概括Relief Mapping，将会是：“在Shader里做光线追踪”。</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/28059221">【《Real-Time Rendering 3rd》 提炼总结】(六) 第七章 · 高级着色：BRDF及相关技术</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/28489928">【《Real-Time Rendering 3rd》 提炼总结】(七) 第七章续 · 延迟渲染(Deferred Rendering)的前生今世</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/29418992">【《Real-Time Rendering 3rd》 提炼总结】(八) 第九章 · 全局光照:光线追踪、路径追踪与GI技术进化编年史</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30345339">【《Real-Time Rendering 3rd》 提炼总结】(九) 第十章 · 游戏开发中基于图像的渲染技术总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/31194204">【《Real-Time Rendering 3rd》 提炼总结】(十) 第十一章 · 非真实感渲染(NPR)相关技术总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/32300891">【《Real-Time Rendering 3rd》 提炼总结】(十一) 第十四章 : 游戏开发中的渲染加速算法总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/32928016">【《Real-Time Rendering 3rd》 提炼总结】(十二) 渲染管线优化方法论：从瓶颈定位到优化策略</a></p>
+<p><a href="https://www.bilibili.com/video/BV1N7411n7ku/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">【教程】2019美术知识学习总结—卡渲部分</a></p>
+<p><a href="https://www.wolai.com/fkGSwxLu2pjWD7kiBY1V7W">Real-Time Rendering 4th</a> 翻译</p>
+<section id="图形渲染管线" class="level3">
+<h3 class="anchored" data-anchor-id="图形渲染管线">1. <strong>图形渲染管线</strong></h3>
+<p>rtr 4th chapter2</p>
+<p>游戏引擎架构 P404</p>
+<p><a href="https://positiveczp.github.io/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BD%A2%E5%AD%A6%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF.pdf">细说图形学渲染管线.pdf (positiveczp.github.io)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/137780634">猴子也能看懂的渲染管线（Render Pipeline）</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/87508234">渲染管线中的不可控、可配置与可控</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/92165837">游戏引擎中的渲染管线</a> <strong>洛城 好多引用</strong> TBDR 另一种记录灯光的 之后演变cluster rendering</p>
+<p><a href="https://www.humus.name/Articles/PracticalClusteredShading.pdf">Practical Clustered Shading</a></p>
+<p><a href="http://www.klayge.org/material/4_4/Tiled/lauritzen_deferred_shading_siggraph_2010.pdf">Deferred Rendering for Current and Future Rendering Pipelines</a></p>
+<blockquote class="blockquote">
+<p><span class="citation" data-cites="百人计划">@百人计划</span> 3400 - 延迟渲染管线介绍 <a href="https://www.bilibili.com/video/BV1244y1i7oV?spm_id_from=333.1387.collection.video_card.click">图形 3.4 延迟渲染管线介绍</a> https://docs.qq.com/slide/DUWVZbHFYSkxNY0ll?nlc=1</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20250427004010126.png" class="img-fluid figure-img"></p>
+<figcaption>image-20250427004010126</figcaption>
+</figure>
+</div>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/390625258">渲染架构比较：IMR、TBR &amp; TBDR</a></p>
+<blockquote class="blockquote">
+<p>现在主流的渲染 API 采用的都是 IMR 或 TBR 的渲染架构，TBR 有时也会叫 TBDR，但 PowerVR 认为他们的才能叫 TBDR，关于这些，下面一一说明</p>
+<p>这里是渲染架构 指的是硬件的架构</p>
+</blockquote>
+<p><a href="https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline">Life of a triangle - NVIDIA’s logical pipeline</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/81011375">虚幻4渲染编程(Shader篇)【第十四卷：PreZ And EarlyZ In UE4】</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/54694743">游戏引擎中的光照算法</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/582098945">Render Graph 全网最细介绍（一）</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/582415505">Render Graph 全网最细介绍（二）</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/425830762">Render Graph与现代图形API</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/361383661">图形学基础 - 着色 - 采样理论</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/360222821">图形学基础 - 着色 - 基础着色模型</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/368065919">图形学基础 - 着色 - 透明度混合-OIT</a></p>
+<p><a href="https://developer.nvidia.com/content/depth-precision-visualized">Depth Precision Visualized</a> reverse-Z https://www.reedbeta.com/blog/depth-precision-visualized/</p>
+<p><a href="https://outerra.blogspot.com/2012/11/maximizing-depth-buffer-range-and.html">Maximizing Depth Buffer Range and Precision</a></p>
+<p><a href="https://tomhultonharrop.com/posts/reverse-z/">Reverse Z (and why it’s so awesome)</a></p>
+<p><a href="https://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study/">GTA V - Graphics Study</a></p>
+<p><a href="https://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study-part-2/">GTA V - Graphics Study - Part 2</a></p>
+<p><a href="https://www.adriancourreges.com/blog/2015/11/02/gta-v-graphics-study-part-3/">GTA V - Graphics Study - Part 3</a></p>
+<p><a href="https://gwb.tencent.com/community/detail/123220">针对移动端TBDR架构GPU特性的渲染优化</a></p>
+</section>
+<section id="辐射度量学" class="level3">
+<h3 class="anchored" data-anchor-id="辐射度量学">2. 辐射度量学</h3>
+<p><a href="https://www.bilibili.com/video/BV1X7411F744/?p=14&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">games101-p14</a></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1X7411F744%3Fp%3D14">GAMES101-现代计算机图形学入门-闫令琪_哔哩哔哩_bilibili</a> 时长1小时处</p>
+<p><a href="https://zhuanlan.zhihu.com/p/21376124">基于物理着色：BRDF</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/21961722">金属，塑料，傻傻分不清楚</a></p>
+<blockquote class="blockquote">
+<p>有了上一节的信息，直觉告诉我们一个想法，对于<a href="https://zhida.zhihu.com/search?content_id=969226&amp;content_type=Article&amp;match_order=1&amp;q=导体和绝缘体&amp;zhida_source=entity">导体和绝缘体</a></p>
+<p>，应该分开用不同的保存方法。导体存specular颜色，因为它的diffuse是0。绝缘体存diffuse，因为specular非常弱，都用0.04这个常量表达就可以了。那么半导体呢？就需要一个“金属性”的系数，在两者之间插值。</p>
+<p>用公式来表达，就是</p>
+<p>diffuse = albedo * (1 - metalness) specular = lerp(0.04, albedo, metalness)</p>
+<p>其中，albedo就是3通道的反照率，metalness就是金属性系数。lerp是线性插值</p>
+<p>的意思。这样就用一个方法统一了导体、半导体、绝缘体的颜色分布。metalness = 0表示绝缘体，diffuse就是albedo，specualr = 0.04。metalness = 1表示导体，diffuse = 0，specular = albedo。这么一来，只要在GBuffer里面存albedo（3通道）和metalness（1通道）。</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/52497510">渲染方程Rendering equation</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/158025828">彻底看懂PBR/BRDF方程</a></p>
+</section>
+<section id="基于物理的渲染pbr" class="level3">
+<h3 class="anchored" data-anchor-id="基于物理的渲染pbr">3. 基于物理的渲染(PBR)</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/53086060">【基于物理的渲染（PBR）白皮书】（一） 开篇：PBR核心知识体系总结与概览</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/56967462">【基于物理的渲染（PBR）白皮书】（二） PBR核心理论与渲染光学原理总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/60977923">【基于物理的渲染（PBR）白皮书】（三）迪士尼原则的BRDF与BSDF相关总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/69380665">【基于物理的渲染（PBR）白皮书】（四）法线分布函数相关总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/81708753">【基于物理的渲染（PBR）白皮书】（五）几何函数相关总结</a></p>
+<p><a href="https://learnopengl-cn.github.io/07%20PBR/01%20Theory/">learnOpengl-理论</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/33464301">猴子都能看懂的PBR</a> <strong>感觉有不少问题</strong></p>
+<p><a href="https://www.bilibili.com/video/BV1YK4y1T7yY/?p=10">GAMES202-高质量实时渲染_哔哩哔哩_bilibili</a>Lecture10-11</p>
+<p><a href="https://zhuanlan.zhihu.com/p/152226698">基于物理的渲染：微平面理论(Cook-Torrance BRDF推导)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20091064">基于物理着色（一）</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20119162">基于物理着色（二）- Microfacet材质和多层材质</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20122884">基于物理着色（三）- Disney和UE4的实现</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/21247702">基于物理着色（四）- 次表面散射</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/23827065">基于摄影参数渲染</a></p>
+<p><a href="https://www.reedbeta.com/blog/slope-space-in-brdf-theory/">Slope Space in BRDF Theory</a></p>
+</section>
+<section id="光照模型" class="level3">
+<h3 class="anchored" data-anchor-id="光照模型">4. 光照模型</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/49474631">什么是光照模型</a></p>
+<p><a href="https://learnopengl-cn.github.io/05%20Advanced%20Lighting/01%20Advanced%20Lighting/">高级光照</a></p>
+</section>
+<section id="全局光照" class="level3">
+<h3 class="anchored" data-anchor-id="全局光照">5. 全局光照</h3>
+<p><a href="https://www.bilibili.com/video/BV1X7411F744/">games101</a> Lecture13-16</p>
+<p><a href="https://www.bilibili.com/video/BV1YK4y1T7yY?p=70">GAMES202-高质量实时渲染_哔哩哔哩_bilibili</a> Lecture7-9</p>
+<p><a href="https://zhuanlan.zhihu.com/p/29418992">【《Real-Time Rendering 3rd》 提炼总结】(八) 第九章 · 全局光照:光线追踪、路径追踪与GI技术进化编年史</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/49436452">球谐光照与PRT学习笔记（一）：引入</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/49746076">球谐光照与PRT学习笔记（二）：蒙特卡洛积分与球面上的均匀采样</a></p>
+<p><a href="https://www.bilibili.com/video/BV1YK4y1T7yY/?p=6">GAMES202-高质量实时渲染_哔哩哔哩_bilibili</a> Lecture6 PRT</p>
+<p><a href="https://learnopengl-cn.github.io/05%20Advanced%20Lighting/09%20SSAO/">SSAO</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/34851503">光线追踪与实时渲染的未来</a> <strong>几个不错的demo</strong></p>
+<p><a href="https://www.youtube.com/watch?v=J3ue35ago3Y">Reflections Real-Time Ray Tracing Demo</a></p>
+<p><a href="https://www.youtube.com/watch?v=tjf-1BxpR9c">NVIDIA RTX and GameWorks Ray Tracing Technology Demonstration</a></p>
+<p><a href="https://www.youtube.com/watch?v=LXo0WdlELJk">SEED - Project PICA PICA - Real-time Raytracing Experiment using DXR</a></p>
+<p>Ray Tracing in North Light Demo：<a href="https://www.youtube.com/watch?v=70W2aFr5-Xk">Experiments with DirectX Raytracing in Northlight</a></p>
+<p><a href="https://www.youtube.com/watch?v=4sFQzeFQ4ZE">DirectX Raytracing tech demo - accurate real-time reflections</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/102397700">实时光线追踪技术：业界发展近况与未来挑战</a> <strong>总结了unity和unreal用到的技术</strong></p>
+<p><a href="https://www.bilibili.com/video/BV1YK4y1T7yY/?p=12">GAMES202-高质量实时渲染_哔哩哔哩_bilibili</a>Lecture12-13</p>
+<p><a href="https://zhuanlan.zhihu.com/p/49436452">球谐光照与PRT学习笔记（一）：引入</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/49746076">球谐光照与PRT学习笔记（二）：蒙特卡洛积分与球面上的均匀采样</a></p>
+<p><a href="https://3dvar.com/Green2003Spherical.pdf">Spherical Harmonic Lighting: The Gritty Details</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/359856625">【论文复现】Spherical Harmonic Lighting:The Gritty Details</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/363600898">【论文复现】An Efficient Representation for Irradiance Environment Maps</a></p>
+</section>
+<section id="抗锯齿" class="level3">
+<h3 class="anchored" data-anchor-id="抗锯齿">6. 抗锯齿</h3>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzUxMDM3MTYwNQ==&amp;mid=2247492858&amp;idx=1&amp;sn=1618f968d01929711e0fdbd51ff754f1&amp;chksm=f9015680ce76df9694535674d7309b864fbe2282cad2375798adf4effedb9071bbdfac13955b&amp;scene=178&amp;cur_album_id=2193636877105201156&amp;poc_token=HHp262ajhO0KuAJgAgw6qNl8ir6OKMf7ZFYe5kqc">深入剖析MSAA</a></p>
+<p><a href="https://www.jianshu.com/p/fc459e883a1e">几何抗锯齿Anti-Aliasing技术综述</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/90982812">Anti-Aliasing 技术盘点</a></p>
+<p><a href="https://www.zhihu.com/question/20236638/answer/44821615">请问FXAA、FSAA与MSAA有什么区别？效果和性能上哪个好？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/135444145">延迟渲染与MSAA的那些事</a></p>
+<p><a href="https://mp.weixin.qq.com/s/shU-POBZRMSOPstkO8HlZA">进阶渲染系列（六）——FXAA快速近似抗锯齿（平滑像素）</a> <strong>应该是翻译catlike的 还没看</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/64993622">DX12渲染管线(2) - 时间性抗锯齿(TAA) - 知乎 (zhihu.com)</a> <strong>已经被删了</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/116211994">DLSS 2.0 - 重新定义AI渲染</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/123642175">DLSS 2.0 - 基于深度学习的实时渲染图像重建</a></p>
+<p><a href="https://www.youtube.com/watch?v=d5knHzv0IQE">GTC 2020: DLSS 2.0 - Image Reconstruction for Real-time Rendering with Deep Learning</a></p>
+<p><a href="https://www.nvidia.com/en-sg/geforce/news/dlss3-ai-powered-neural-graphics-innovations/">NVIDIA DLSS 3: AI-Powered Performance Multiplier Boosts Frame Rates By Up To 4X</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/402289109">棋盘渲染（Checkerboard rendering）</a></p>
+<p><a href="https://diglib.eg.org/server/api/core/bitstreams/6839f5a2-c94c-4c18-9945-680663ccb097/content">Multisample anti-aliasing in deferred rendering</a> <strong>大脑空空的</strong></p>
+</section>
+<section id="阴影" class="level3">
+<h3 class="anchored" data-anchor-id="阴影">7. 阴影</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1YK4y1T7yY%3Fp%3D3">GAMES202-高质量实时渲染_哔哩哔哩_bilibili</a> Lecture3-4</p>
+<p><a href="https://learnopengl-cn.github.io/05%20Advanced%20Lighting/03%20Shadows/01%20Shadow%20Mapping/#pcf">learnOpengl-阴影映射</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/27572129">游戏中的阴影（一）：基础</a> shadowMap shadowVolume PCF PCSS VSM（Variance Shadow Map）ESM（Exponential Shadow Map）EVSM（Exponential Variance Shadow Maps）CSM（Convolution Shadow Maps）</p>
+<p><a href="https://zhuanlan.zhihu.com/p/26853641">实时渲染中的软阴影技术</a> PCF PCSS VSM CSM ESM</p>
+<p><a href="https://zhuanlan.zhihu.com/p/142193557">静态阴影-Lightmap</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/53689987">Cascaded Shadow Maps(CSM)实时阴影的原理与实现</a></p>
+<p><a href="https://gwb.tencent.com/community/detail/117522">CSM阴影技术讲解</a></p>
+<p><a href="https://blog.csdn.net/qjh5606/article/details/119958786">图形学基础|基于SDF的卡通阴影图</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/361716315">卡通渲染之基于SDF生成面部阴影贴图的效果实现（URP）</a></p>
+</section>
+<section id="延迟渲染" class="level3">
+<h3 class="anchored" data-anchor-id="延迟渲染">8. 延迟渲染</h3>
+<p><a href="https://learnopengl-cn.github.io/05%20Advanced%20Lighting/08%20Deferred%20Shading/">learnOpengl-延迟着色法</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/102134614">延迟渲染</a></p>
+</section>
+<section id="纹理贴图" class="level3">
+<h3 class="anchored" data-anchor-id="纹理贴图">9. 纹理贴图</h3>
+<p><a href="https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/">learnOpengl-纹理</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/27551369">【《Real-Time Rendering 3rd》 提炼总结】(五) 第六章 · 纹理贴图及相关技术</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/144332091">计算机图形学七：纹理映射(Texture Mapping)及Mipmap技术</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/369977849">图形学基础 - 纹理 - 纹理映射流程</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/370927083">图形学基础 - 纹理 - 纹理映射盘点</a></p>
+<p><a href="https://www.reedbeta.com/blog/texture-gathers-and-coordinate-precision/">Texture Gathers and Coordinate Precision</a></p>
+</section>
+<section id="空间加速结构算法" class="level3">
+<h3 class="anchored" data-anchor-id="空间加速结构算法">10. 空间加速结构&amp;算法</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1X7411F744%3Fp%3D13">GAMES101-现代计算机图形学入门-闫令琪_哔哩哔哩_bilibili</a> Lecture13-14</p>
+<p><a href="https://zhuanlan.zhihu.com/p/32300891">【《Real-Time Rendering 3rd》 提炼总结】(十一) 第十四章 : 游戏开发中的渲染加速算法总结</a></p>
+</section>
+<section id="杂项" class="level3">
+<h3 class="anchored" data-anchor-id="杂项">11. 杂项</h3>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1X7411F744%3Fp%3D16">GAMES101-现代计算机图形学入门-闫令琪_哔哩哔哩_bilibili</a> lecture16</p>
+<p><a href="https://learnopengl-cn.github.io/07%20PBR/03%20IBL/02%20Specular%20IBL/">learnOpengl-镜面反射 IBL</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30345339">【《Real-Time Rendering 3rd》 提炼总结】(九) 第十章 · 游戏开发中基于图像的渲染技术总结</a></p>
+<p><a href="https://developer.nvidia.com/gpugems/gpugems/part-iv-image-processing/chapter-23-depth-field-survey-techniques">GPU-GEMS1 - Chapter 23. Depth of Field: A Survey of Techniques</a></p>
+</section>
+<section id="优化" class="level3">
+<h3 class="anchored" data-anchor-id="优化">12. 优化</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/68158277">当我们谈优化时，我们谈些什么</a> <strong>洛城 好多引用</strong></p>
+<blockquote class="blockquote">
+<p>减少模型数量，减少/合并draw call，缩减贴图尺寸，压缩贴图，使用LOD</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/626990363">【Shader篇】Shader性能深入分析</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/631399200">【Shader篇】Shader简析(变体与缓存)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/572503905">UE4 PSO缓存</a></p>
+<p>(《<strong>Unity性能优化</strong>》课程)[https://www.youtube.com/playlist?list=PLZkFlM4qb0dtb5ieApJVm1CeEkuyAGYDa]</p>
+</section>
+<section id="sdf相关" class="level3">
+<h3 class="anchored" data-anchor-id="sdf相关">13 SDF相关</h3>
+<p><a href="https://www.youtube.com/watch?v=BNZtUB7yhX4">Ray Marching, and making 3D Worlds with Math</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/337944099">Signed Distance Field</a></p>
+<p><a href="https://www.youtube.com/watch?v=Cp5WWtMoeKg">Coding Adventure: Ray Marching</a></p>
+<p><a href="https://www.youtube.com/watch?v=LyQWZRfWotQ">SDF (signed distance function)</a></p>
+<p><a href="https://www.youtube.com/watch?v=62-pRVZuS5c">The SDF of a Box</a></p>
+</section>
+<section id="剔除" class="level3">
+<h3 class="anchored" data-anchor-id="剔除">14 剔除</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/66407205">剔除：从软件到硬件</a><strong>洛城 好多引用</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/701883987">图形学里的剔除技术</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/638259988">遮挡剔除</a></p>
+</section>
+<section id="vulkan" class="level3">
+<h3 class="anchored" data-anchor-id="vulkan">15 Vulkan</h3>
+<ul>
+<li><p><a href="https://www.sebastianaaltonen.com/blog/no-graphics-api">No Graphics API</a></p>
+<blockquote class="blockquote">
+<h3 id="文章核心观点" class="anchored">文章核心观点</h3>
+<p><strong>现有的“现代”图形API（如DirectX 12、Vulkan、Metal）已经过时且过于复杂。它们的设计基于10多年前的硬件架构，而当今的GPU已经发生了根本性进化。因此，我们需要一个全新的、极简的、完全“无绑定”（bindless）的图形API设计，其核心理念是：用单一的64位GPU指针和一个全局可访问的描述符堆来替代现有API中复杂的资源绑定、状态管理和管线对象（PSO）。</strong></p>
+<hr>
+<h3 id="详细原因与论证" class="anchored">详细原因与论证</h3>
+<p>作者从历史、技术和实践三个层面，系统地论证了为什么需要一场彻底的变革。</p>
+<h4 id="历史原因api是为古代硬件设计的妥协产物" class="anchored">1. 历史原因：API是为“古代”硬件设计的妥协产物</h4>
+<ul>
+<li></li>
+</ul>
+<p><strong>硬件差异巨大</strong>：早期的GPU（如3dfx Voodoo 2）拥有分离的内存和固定的功能单元，与现代GPU的统一计算架构完全不同。为了兼容这些多样化的硬件，OpenGL和DirectX等API不得不做出大量妥协。</p>
+<ul>
+<li></li>
+</ul>
+<p><strong>驱动承担了过多工作</strong>：旧的API（如OpenGL、DirectX 11）是“即时模式”，允许开发者细粒度地设置状态。为了适配底层硬件，驱动层不得不进行大量的映射、验证和重排工作，这增加了复杂性并降低了效率。</p>
+<ul>
+<li></li>
+</ul>
+<p><strong>“现代”API的诞生背景</strong>：DirectX 12、Vulkan和Metal（被称为“现代API”）是为了解决旧API的效率问题而诞生的。它们引入了“持久化对象”（如PSO、描述符集），将复杂的状态组合和验证工作提前到创建阶段，以减少运行时的开销。<strong>然而，这个设计主要是为了适应当时（约10年前）GPU的局限性</strong>，例如缺乏统一的缓存层级和高效的原始内存加载路径。</p>
+<h4 id="技术原因当今gpu已经进化但api却停滞不前" class="anchored">2. 技术原因：当今GPU已经进化，但API却停滞不前</h4>
+<p>作者指出，过去十年GPU硬件发生了巨大的变化，使得现有API中的许多复杂机制变得多余：</p>
+<ul>
+<li></li>
+</ul>
+<p><strong>统一的内存模型</strong>：</p>
+<ul>
+<li><p>现代GPU都拥有完整的、一致的末级缓存（LLC）。</p></li>
+<li><p>PCIe Resizable BAR（可调整大小基地址寄存器）和UMA（统一内存访问）让CPU可以直接读写GPU显存，无需通过缓慢的上传缓冲。</p></li>
+<li><p><strong>结论</strong>：不再需要复杂的堆管理（heap management）和上传/回读（upload/readback）API。<code>gpuMalloc</code>这样的简单函数就足够了。</p></li>
+<li></li>
+</ul>
+<p><strong>原生的64位指针支持</strong>：</p>
+<ul>
+<li><p>现代GPU原生支持64位指针，着色器可以直接解引用GPU内存地址。</p></li>
+<li><p><strong>结论</strong>：不再需要各种抽象的缓冲区类型（常量缓冲、结构化缓冲、字节地址缓冲等）和对应的视图（CBV/SRV/UAV）。一个<code>const MyData* data</code>指针就能完成所有数据输入。</p></li>
+<li></li>
+</ul>
+<p><strong>无绑定（Bindless）纹理采样</strong>：</p>
+<ul>
+<li><p>现代GPU支持通过32位索引在一个全局的描述符堆（Descriptor Heap）中访问任意纹理，无需在绘制调用前预先绑定。</p></li>
+<li><p><strong>结论</strong>：消除了繁琐的根签名（Root Signature）、描述符表（Descriptor Table）和绑定API。只需在着色器中声明一个 <code>Texture textureHeap[]</code>即可。</p></li>
+<li></li>
+</ul>
+<p><strong>可编程顶点拾取（Programmable Vertex Fetch）</strong>：</p>
+<ul>
+<li><p>现代GPU的顶点着色器可以直接执行原始内存加载指令来获取顶点数据，固定功能的顶点拾取硬件已成为过去。</p></li>
+<li><p><strong>结论</strong>：不再需要输入布局（Input Layout）描述和顶点缓冲区绑定API。顶点数据就是一个普通的GPU指针，开发者可以用任何方式组织它。</p></li>
+</ul>
+<h4 id="实践原因现有api带来了严重的开发和使用问题" class="anchored">3. 实践原因：现有API带来了严重的开发和使用问题</h4>
+<ul>
+<li></li>
+</ul>
+<p><strong>管线状态对象（PSO）爆炸</strong>：这是作者认为最大的问题。由于PSO包含了几乎所有渲染状态（顶点布局、光栅化状态、混合模式、深度模板状态等），任何状态的微小不同都需要创建一个新的PSO。这导致：</p>
+<ul>
+<li><p>游戏加载时间极长，玩家本地PSO缓存可能超过100GB。</p></li>
+<li><p>游戏过程中出现严重卡顿（stutter）。</p></li>
+<li><p>开发者需要维护庞大的离线编译系统和云端PSO缓存。</p></li>
+<li></li>
+</ul>
+<p><strong>屏障（Barrier）过于复杂</strong>：现有API要求开发者精确跟踪每个资源的生命周期和状态转换（如从渲染目标到着色器资源）。作者指出，<strong>现代GPU硬件实际上并不关心单个资源的状态</strong>，它们只需要知道执行阶段的依赖关系。当前的屏障API浪费了大量CPU时间来构建驱动最终会丢弃的资源列表。</p>
+<ul>
+<li></li>
+</ul>
+<p><strong>着色语言落后</strong>：HLSL和GLSL仍然缺乏对指针的原生支持，导致数组处理困难，无法编写可复用的库函数，阻碍了着色器生态系统的建立。相比之下，CUDA的指针语义使其拥有了丰富的库生态。</p>
+<h3 id="作者的解决方案一个极简的新api" class="anchored">作者的解决方案：一个极简的“新API”</h3>
+<p>作者提出了一种新的API设计思路，其核心特征如下：</p>
+<ol type="1">
+<li></li>
+</ol>
+<p><strong>内存管理</strong>：类似CUDA的<code>gpuMalloc</code>/<code>gpuFree</code>，返回可直接被CPU写入和GPU读取的指针。</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<p><strong>数据传递</strong>：所有着色器的输入都是一个单一的、只读的64位GPU指针，指向一个由用户定义的C结构体。结构体内可以包含其他GPU指针、32位纹理索引等。</p>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<p><strong>纹理访问</strong>：全局的、可索引的纹理描述符堆，通过32位索引访问。描述符可以由CPU或GPU直接写入。</p>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<p><strong>管线状态</strong>：大幅简化PSO。移除顶点布局、大部分光栅化状态。深度模板和混合状态作为独立对象，可以动态设置，从而减少PSO数量。</p>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<p><strong>屏障</strong>：简化为只有阶段掩码（生产者阶段 -&gt; 消费者阶段）和少量特殊标志（如无效化描述符缓存），不再需要资源列表。</p>
+<h3 id="总结" class="anchored">总结</h3>
+<p>这篇文章的核心思想是：<strong>我们不应该再被10年前的技术限制所束缚。</strong> 当今的GPU硬件已经足够强大和统一，足以支持一个更简单、更直接的编程模型。作者呼吁业界（特别是Khronos Group和Microsoft）在下一代API（如Vulkan 2.0或DirectX 13）中进行一次“干净的切割”，彻底拥抱无绑定、指针化的设计，从而从根本上解决当前图形开发的复杂性和性能瓶颈问题。文章核心观点</p>
+<p><strong>现有的“现代”图形API（如DirectX 12、Vulkan、Metal）已经过时且过于复杂。它们的设计基于10多年前的硬件架构，而当今的GPU已经发生了根本性进化。因此，我们需要一个全新的、极简的、完全“无绑定”（bindless）的图形API设计，其核心理念是：用单一的64位GPU指针和一个全局可访问的描述符堆来替代现有API中复杂的资源绑定、状态管理和管线对象（PSO）。</strong></p>
+<hr>
+<h3 id="详细原因与论证-1" class="anchored">详细原因与论证</h3>
+<p>作者从历史、技术和实践三个层面，系统地论证了为什么需要一场彻底的变革。</p>
+<h4 id="历史原因api是为古代硬件设计的妥协产物-1" class="anchored">1. 历史原因：API是为“古代”硬件设计的妥协产物</h4>
+<ul>
+<li><strong>硬件差异巨大</strong>：早期的GPU（如3dfx Voodoo 2）拥有分离的内存和固定的功能单元，与现代GPU的统一计算架构完全不同。为了兼容这些多样化的硬件，OpenGL和DirectX等API不得不做出大量妥协。</li>
+<li><strong>驱动承担了过多工作</strong>：旧的API（如OpenGL、DirectX 11）是“即时模式”，允许开发者细粒度地设置状态。为了适配底层硬件，驱动层不得不进行大量的映射、验证和重排工作，这增加了复杂性并降低了效率。</li>
+<li><strong>“现代”API的诞生背景</strong>：DirectX 12、Vulkan和Metal（被称为“现代API”）是为了解决旧API的效率问题而诞生的。它们引入了“持久化对象”（如PSO、描述符集），将复杂的状态组合和验证工作提前到创建阶段，以减少运行时的开销。<strong>然而，这个设计主要是为了适应当时（约10年前）GPU的局限性</strong>，例如缺乏统一的缓存层级和高效的原始内存加载路径。</li>
+</ul>
+<h4 id="技术原因当今gpu已经进化但api却停滞不前-1" class="anchored">2. 技术原因：当今GPU已经进化，但API却停滞不前</h4>
+<p>作者指出，过去十年GPU硬件发生了巨大的变化，使得现有API中的许多复杂机制变得多余：</p>
+<ul>
+<li><strong>统一的内存模型</strong>：</li>
+<li>现代GPU都拥有完整的、一致的末级缓存（LLC）。</li>
+<li>PCIe Resizable BAR（可调整大小基地址寄存器）和UMA（统一内存访问）让CPU可以直接读写GPU显存，无需通过缓慢的上传缓冲。</li>
+<li><strong>结论</strong>：不再需要复杂的堆管理（heap management）和上传/回读（upload/readback）API。<code>gpuMalloc</code>这样的简单函数就足够了。</li>
+<li><strong>原生的64位指针支持</strong>：</li>
+<li>现代GPU原生支持64位指针，着色器可以直接解引用GPU内存地址。</li>
+<li><strong>结论</strong>：不再需要各种抽象的缓冲区类型（常量缓冲、结构化缓冲、字节地址缓冲等）和对应的视图（CBV/SRV/UAV）。一个<code>const MyData* data</code>指针就能完成所有数据输入。</li>
+<li><strong>无绑定（Bindless）纹理采样</strong>：</li>
+<li>现代GPU支持通过32位索引在一个全局的描述符堆（Descriptor Heap）中访问任意纹理，无需在绘制调用前预先绑定。</li>
+<li><strong>结论</strong>：消除了繁琐的根签名（Root Signature）、描述符表（Descriptor Table）和绑定API。只需在着色器中声明一个 <code>Texture textureHeap[]</code>即可。</li>
+<li><strong>可编程顶点拾取（Programmable Vertex Fetch）</strong>：</li>
+<li>现代GPU的顶点着色器可以直接执行原始内存加载指令来获取顶点数据，固定功能的顶点拾取硬件已成为过去。</li>
+<li><strong>结论</strong>：不再需要输入布局（Input Layout）描述和顶点缓冲区绑定API。顶点数据就是一个普通的GPU指针，开发者可以用任何方式组织它。</li>
+</ul>
+<h4 id="实践原因现有api带来了严重的开发和使用问题-1" class="anchored">3. 实践原因：现有API带来了严重的开发和使用问题</h4>
+<ul>
+<li><strong>管线状态对象（PSO）爆炸</strong>：这是作者认为最大的问题。由于PSO包含了几乎所有渲染状态（顶点布局、光栅化状态、混合模式、深度模板状态等），任何状态的微小不同都需要创建一个新的PSO。这导致：</li>
+<li>游戏加载时间极长，玩家本地PSO缓存可能超过100GB。</li>
+<li>游戏过程中出现严重卡顿（stutter）。</li>
+<li>开发者需要维护庞大的离线编译系统和云端PSO缓存。</li>
+<li><strong>屏障（Barrier）过于复杂</strong>：现有API要求开发者精确跟踪每个资源的生命周期和状态转换（如从渲染目标到着色器资源）。作者指出，<strong>现代GPU硬件实际上并不关心单个资源的状态</strong>，它们只需要知道执行阶段的依赖关系。当前的屏障API浪费了大量CPU时间来构建驱动最终会丢弃的资源列表。</li>
+<li><strong>着色语言落后</strong>：HLSL和GLSL仍然缺乏对指针的原生支持，导致数组处理困难，无法编写可复用的库函数，阻碍了着色器生态系统的建立。相比之下，CUDA的指针语义使其拥有了丰富的库生态。</li>
+</ul>
+<h3 id="作者的解决方案一个极简的新api-1" class="anchored">作者的解决方案：一个极简的“新API”</h3>
+<p>作者提出了一种新的API设计思路，其核心特征如下：</p>
+<ol type="1">
+<li><strong>内存管理</strong>：类似CUDA的<code>gpuMalloc</code>/<code>gpuFree</code>，返回可直接被CPU写入和GPU读取的指针。</li>
+<li><strong>数据传递</strong>：所有着色器的输入都是一个单一的、只读的64位GPU指针，指向一个由用户定义的C结构体。结构体内可以包含其他GPU指针、32位纹理索引等。</li>
+<li><strong>纹理访问</strong>：全局的、可索引的纹理描述符堆，通过32位索引访问。描述符可以由CPU或GPU直接写入。</li>
+<li><strong>管线状态</strong>：大幅简化PSO。移除顶点布局、大部分光栅化状态。深度模板和混合状态作为独立对象，可以动态设置，从而减少PSO数量。</li>
+<li><strong>屏障</strong>：简化为只有阶段掩码（生产者阶段 -&gt; 消费者阶段）和少量特殊标志（如无效化描述符缓存），不再需要资源列表。</li>
+</ol>
+<h3 id="总结-1" class="anchored">总结</h3>
+<p>这篇文章的核心思想是：<strong>我们不应该再被10年前的技术限制所束缚。</strong> 当今的GPU硬件已经足够强大和统一，足以支持一个更简单、更直接的编程模型。作者呼吁业界（特别是Khronos Group和Microsoft）在下一代API（如Vulkan 2.0或DirectX 13）中进行一次“干净的切割”，彻底拥抱无绑定、指针化的设计，从而从根本上解决当前图形开发的复杂性和性能瓶颈问题。</p>
+</blockquote></li>
+<li><p><a href="https://www.zhihu.com/column/c_1542809288766390272">Vulkan 折磨笔记</a></p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/616082929">Vulkan文章汇总</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/554631289">初探Vulkan</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/616099137">理解Vulkan资源绑定(Resource Binding)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/617307194">理解Vulkan管线(Pipeline)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/619295431">理解Vulkan渲染通道(RenderPass)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/620888071">理解Vulkan 命令缓冲区(Command Buffer)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/625089024">理解Vulkan同步(Synchronization)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/616082929#:~:text=%E6%96%87%E7%AB%A0-,Vulkan%20Tutorial,-%E4%B8%8D%E7%9F%A5%E5%90%8D%E4%B9%A6">Vulkan Tutorial</a></li>
+</ul></li>
+<li><p><a href="https://stackoverflow.com/questions/39557141/what-is-the-difference-between-framebuffer-and-image-in-vulkan">What is the difference between framebuffer and image in Vulkan?</a><a href="https://stackoverflow.com/questions/39557141/what-is-the-difference-between-framebuffer-and-image-in-vulkan">What is the difference between framebuffer and image in Vulkan?</a></p>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/K0NRD.png" class="img-fluid figure-img"></p>
+<figcaption>enter image description here</figcaption>
+</figure>
+</div></li>
+</ul></li>
+</ul>
+<p>https://vulkan-tutorial.com/</p>
+<p>https://vkguide.dev/</p>
+<ul>
+<li>https://docs.vulkan.org/spec/latest/index.html vulkan学习资料
+<ul>
+<li>https://docs.vulkan.org/tutorial/l</li>
+<li>http://docs.vulkan.org/samples/latest/README.html</li>
+</ul></li>
+</ul>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2026/03/vulkan-memory-barriers-and-image-layouts-explained/">Vulkan memory barriers and image layouts explained</a></p>
+<p><a href="https://docs.vulkan.org/guide/latest/decoder_ring.html">Vulkan Decoder Ring</a></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 23%">
+<col style="width: 32%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Vulkan</strong></th>
+<th style="text-align: left;"><strong>GL, GLES</strong></th>
+<th style="text-align: left;"><strong>DirectX</strong></th>
+<th style="text-align: left;"><strong>Metal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">缓冲设备地址</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GPU 虚拟地址</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">缓冲视图、纹素缓冲</td>
+<td style="text-align: left;">纹理缓冲</td>
+<td style="text-align: left;">类型化缓冲 SRV、类型化缓冲 UAV</td>
+<td style="text-align: left;">纹理缓冲</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">颜色附件</td>
+<td style="text-align: left;">颜色附件</td>
+<td style="text-align: left;">渲染目标</td>
+<td style="text-align: left;">颜色附件或渲染目标</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">命令缓冲</td>
+<td style="text-align: left;">上下文的一部分、显示列表、NV_command_list</td>
+<td style="text-align: left;">命令列表</td>
+<td style="text-align: left;">命令缓冲</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">命令池</td>
+<td style="text-align: left;">上下文的一部分</td>
+<td style="text-align: left;">命令分配器</td>
+<td style="text-align: left;">命令队列</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">条件渲染</td>
+<td style="text-align: left;">条件渲染</td>
+<td style="text-align: left;">谓词</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">协作矩阵</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">波矩阵</td>
+<td style="text-align: left;">SIMD 组矩阵</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">深度/模板附件</td>
+<td style="text-align: left;">深度附件和模板附件</td>
+<td style="text-align: left;">深度/模板视图</td>
+<td style="text-align: left;">深度附件和模板附件、深度渲染目标和模板渲染目标</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">描述符</td>
+<td style="text-align: left;">描述符</td>
+<td style="text-align: left;">参数</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">描述符池</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">描述符堆</td>
+<td style="text-align: left;">堆</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">描述符集</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">描述符表</td>
+<td style="text-align: left;">参数缓冲</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">描述符集布局绑定、推送描述符</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">根参数</td>
+<td style="text-align: left;">着色器参数列表中的参数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">设备组</td>
+<td style="text-align: left;">隐式（如 SLI、CrossFire）</td>
+<td style="text-align: left;">多适配器设备</td>
+<td style="text-align: left;">对等组</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">设备内存</td>
+<td style="text-align: left;">堆</td>
+<td style="text-align: left;">放置堆</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">事件</td>
+<td style="text-align: left;">分割屏障</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">栅栏</td>
+<td style="text-align: left;">栅栏、同步</td>
+<td style="text-align: left;">ID3D12Fence::SetEventOnCompletion</td>
+<td style="text-align: left;">完成处理器、-[MTLCommandBuffer waitUntilComplete]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">片段着色器</td>
+<td style="text-align: left;">片段着色器</td>
+<td style="text-align: left;">像素着色器</td>
+<td style="text-align: left;">片段着色器或片段函数</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">片段着色器互锁</td>
+<td style="text-align: left;">GL_ARB_fragment_shader_interlock</td>
+<td style="text-align: left;">光栅化顺序视图（ROV）</td>
+<td style="text-align: left;">光栅顺序组</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">帧缓冲</td>
+<td style="text-align: left;">帧缓冲对象</td>
+<td style="text-align: left;">资源集合</td>
+<td style="text-align: left;">MTLRenderPassDescriptor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">堆</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ID3D12Heap</td>
+<td style="text-align: left;">MTLHeap</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">图像</td>
+<td style="text-align: left;">纹理和渲染缓冲</td>
+<td style="text-align: left;">纹理</td>
+<td style="text-align: left;">纹理</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">图像布局</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">资源状态</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">图像平铺</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">图像布局、swizzle</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">图像视图</td>
+<td style="text-align: left;">纹理视图</td>
+<td style="text-align: left;">渲染目标视图、深度/模板视图、着色器资源视图、无序访问视图</td>
+<td style="text-align: left;">纹理视图</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">接口匹配（in/out）</td>
+<td style="text-align: left;">varying（GLSL 4.20 中移除）</td>
+<td style="text-align: left;">匹配语义</td>
+<td style="text-align: left;">每顶点输入属性</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">调用</td>
+<td style="text-align: left;">调用</td>
+<td style="text-align: left;">线程、通道</td>
+<td style="text-align: left;">线程、通道</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">层</td>
+<td style="text-align: left;">切片</td>
+<td style="text-align: left;">切片</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">逻辑设备</td>
+<td style="text-align: left;">上下文</td>
+<td style="text-align: left;">设备</td>
+<td style="text-align: left;">设备</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">内存类型</td>
+<td style="text-align: left;">自动管理、纹理存储提示、缓冲存储</td>
+<td style="text-align: left;">堆类型、CPU 页属性</td>
+<td style="text-align: left;">存储模式、CPU 缓存模式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">多视图渲染</td>
+<td style="text-align: left;">多视图渲染</td>
+<td style="text-align: left;">视图实例化</td>
+<td style="text-align: left;">顶点放大</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">物理设备</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">适配器、节点</td>
+<td style="text-align: left;">设备</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">管线</td>
+<td style="text-align: left;">状态和程序或程序管线</td>
+<td style="text-align: left;">管线状态</td>
+<td style="text-align: left;">管线状态</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">管线屏障、内存屏障</td>
+<td style="text-align: left;">纹理屏障、内存屏障</td>
+<td style="text-align: left;">资源屏障</td>
+<td style="text-align: left;">纹理屏障、内存屏障</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">管线布局</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">根签名</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">队列</td>
+<td style="text-align: left;">上下文的一部分</td>
+<td style="text-align: left;">命令队列</td>
+<td style="text-align: left;">命令队列</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">信号量</td>
+<td style="text-align: left;">栅栏、同步</td>
+<td style="text-align: left;">栅栏</td>
+<td style="text-align: left;">栅栏、事件</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">着色器模块</td>
+<td style="text-align: left;">着色器对象</td>
+<td style="text-align: left;">D3DCompileFromFile 产生的 ID3DBlob</td>
+<td style="text-align: left;">着色器库</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">着色率附件</td>
+<td style="text-align: left;">着色率图像</td>
+<td style="text-align: left;">光栅化速率图</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">稀疏块</td>
+<td style="text-align: left;">稀疏块</td>
+<td style="text-align: left;">瓦片</td>
+<td style="text-align: left;">稀疏瓦片</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">稀疏图像</td>
+<td style="text-align: left;">稀疏纹理</td>
+<td style="text-align: left;">预留资源（D12）、平铺资源（D11）</td>
+<td style="text-align: left;">稀疏纹理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">存储缓冲</td>
+<td style="text-align: left;">着色器存储缓冲</td>
+<td style="text-align: left;">原始或结构化缓冲 UAV</td>
+<td style="text-align: left;">设备地址空间中的缓冲</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">子组</td>
+<td style="text-align: left;">子组</td>
+<td style="text-align: left;">波</td>
+<td style="text-align: left;">SIMD 组、四元组</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">表面</td>
+<td style="text-align: left;">HDC、GLXDrawable、EGLSurface</td>
+<td style="text-align: left;">窗口</td>
+<td style="text-align: left;">层</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">交换链</td>
+<td style="text-align: left;">HDC、GLXDrawable、EGLSurface 的一部分</td>
+<td style="text-align: left;">交换链</td>
+<td style="text-align: left;">层</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">交换链图像</td>
+<td style="text-align: left;">默认帧缓冲</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">可绘制纹理</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">任务着色器</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">放大着色器</td>
+<td style="text-align: left;">对象着色器</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">细分控制着色器</td>
+<td style="text-align: left;">细分控制着色器</td>
+<td style="text-align: left;">外壳着色器</td>
+<td style="text-align: left;">细分计算核</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">细分评估着色器</td>
+<td style="text-align: left;">细分评估着色器</td>
+<td style="text-align: left;">域着色器</td>
+<td style="text-align: left;">细分后顶点着色器</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">时间线信号量</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">D3D12 栅栏</td>
+<td style="text-align: left;">事件</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">变换反馈</td>
+<td style="text-align: left;">变换反馈</td>
+<td style="text-align: left;">流输出</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">统一缓冲</td>
+<td style="text-align: left;">统一缓冲</td>
+<td style="text-align: left;">常量缓冲视图（CBV）</td>
+<td style="text-align: left;">常量地址空间中的缓冲</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">工作组</td>
+<td style="text-align: left;">工作组</td>
+<td style="text-align: left;">线程组</td>
+<td style="text-align: left;">线程组</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Vulkan</strong></th>
+<th style="text-align: left;"><strong>GL,GLES</strong></th>
+<th style="text-align: left;"><strong>DirectX</strong></th>
+<th style="text-align: left;"><strong>Metal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">buffer device address</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GPU virtual address</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">buffer view, texel buffer</td>
+<td style="text-align: left;">texture buffer</td>
+<td style="text-align: left;">typed buffer SRV, typed buffer UAV</td>
+<td style="text-align: left;">texture buffer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">color attachments</td>
+<td style="text-align: left;">color attachments</td>
+<td style="text-align: left;">render target</td>
+<td style="text-align: left;">color attachments or render target</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">command buffer</td>
+<td style="text-align: left;">part of context, display list, NV_command_list</td>
+<td style="text-align: left;">command list</td>
+<td style="text-align: left;">command buffer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">command pool</td>
+<td style="text-align: left;">part of context</td>
+<td style="text-align: left;">command allocator</td>
+<td style="text-align: left;">command queue</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">conditional rendering</td>
+<td style="text-align: left;">conditional rendering</td>
+<td style="text-align: left;">predication</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cooperative matrix</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">wave matrix</td>
+<td style="text-align: left;">SIMD group matrix</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">depth/stencil attachment</td>
+<td style="text-align: left;">depth Attachment and stencil Attachment</td>
+<td style="text-align: left;">depth/stencil view</td>
+<td style="text-align: left;">depth attachment and stencil attachment, depth render target and stencil render target</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">descriptor</td>
+<td style="text-align: left;">descriptor</td>
+<td style="text-align: left;">argument</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">descriptor pool</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">descriptor heap</td>
+<td style="text-align: left;">heap</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">descriptor set</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">descriptor table</td>
+<td style="text-align: left;">argument buffer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">descriptor set layout binding, push descriptor</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">root parameter</td>
+<td style="text-align: left;">argument in shader parameter list</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">device group</td>
+<td style="text-align: left;">implicit (E.g. SLI,CrossFire)</td>
+<td style="text-align: left;">multi-adapter device</td>
+<td style="text-align: left;">peer group</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">device memory</td>
+<td style="text-align: left;">heap</td>
+<td style="text-align: left;">placement heap</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">event</td>
+<td style="text-align: left;">split barrier</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fence</td>
+<td style="text-align: left;">fence, sync</td>
+<td style="text-align: left;">ID3D12Fence::SetEventOnCompletion</td>
+<td style="text-align: left;">completed handler, -[MTLCommandBuffer waitUntilComplete]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fragment shader</td>
+<td style="text-align: left;">fragment shader</td>
+<td style="text-align: left;">pixel shader</td>
+<td style="text-align: left;">fragment shader or fragment function</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fragment shader interlock</td>
+<td style="text-align: left;">GL_ARB_fragment_shader_interlock</td>
+<td style="text-align: left;">rasterizer order view (ROV)</td>
+<td style="text-align: left;">raster order group</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">framebuffer</td>
+<td style="text-align: left;">framebuffer object</td>
+<td style="text-align: left;">collection of resources</td>
+<td style="text-align: left;">MTLRenderPassDescriptor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">heap</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ID3D12Heap</td>
+<td style="text-align: left;">MTLHeap</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">image</td>
+<td style="text-align: left;">texture and renderbuffer</td>
+<td style="text-align: left;">texture</td>
+<td style="text-align: left;">texture</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">image layout</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">resource state</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">image tiling</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">image layout, swizzle</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">image view</td>
+<td style="text-align: left;">texture view</td>
+<td style="text-align: left;">render target view, depth/stencil view, shader resource view, unordered access view</td>
+<td style="text-align: left;">texture view</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">interface matching (in/out)</td>
+<td style="text-align: left;">varying (removed in GLSL 4.20)</td>
+<td style="text-align: left;">Matching semantics</td>
+<td style="text-align: left;">Pervertex input attributes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invocation</td>
+<td style="text-align: left;">invocation</td>
+<td style="text-align: left;">thread, lane</td>
+<td style="text-align: left;">thread, lane</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">layer</td>
+<td style="text-align: left;">slice</td>
+<td style="text-align: left;">slice</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">logical device</td>
+<td style="text-align: left;">context</td>
+<td style="text-align: left;">device</td>
+<td style="text-align: left;">device</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">memory type</td>
+<td style="text-align: left;">automatically managed, texture storage hint, buffer storage</td>
+<td style="text-align: left;">heap type, CPU page property</td>
+<td style="text-align: left;">storage mode, CPU cache mode</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">multiview rendering</td>
+<td style="text-align: left;">multiview rendering</td>
+<td style="text-align: left;">view instancing</td>
+<td style="text-align: left;">vertex amplification</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">physical device</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">adapter, node</td>
+<td style="text-align: left;">device</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pipeline</td>
+<td style="text-align: left;">state and program or program pipeline</td>
+<td style="text-align: left;">pipeline state</td>
+<td style="text-align: left;">pipeline state</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pipeline barrier, memory barrier</td>
+<td style="text-align: left;">texture barrier, memory barrier</td>
+<td style="text-align: left;">resource barrier</td>
+<td style="text-align: left;">texture barrier, memory barrier</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pipeline layout</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">root signature</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">queue</td>
+<td style="text-align: left;">part of context</td>
+<td style="text-align: left;">command queue</td>
+<td style="text-align: left;">command queue</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">semaphore</td>
+<td style="text-align: left;">fence, sync</td>
+<td style="text-align: left;">fence</td>
+<td style="text-align: left;">fence, event</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">shader module</td>
+<td style="text-align: left;">shader object</td>
+<td style="text-align: left;">resulting ID3DBlob from D3DCompileFromFile</td>
+<td style="text-align: left;">shader library</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shading rate attachment</td>
+<td style="text-align: left;">shading rate image</td>
+<td style="text-align: left;">rasterization rate map</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sparse block</td>
+<td style="text-align: left;">sparse block</td>
+<td style="text-align: left;">tile</td>
+<td style="text-align: left;">sparse tile</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sparse image</td>
+<td style="text-align: left;">sparse texture</td>
+<td style="text-align: left;">reserved resource (D12), tiled resource (D11)</td>
+<td style="text-align: left;">sparse texture</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">storage buffer</td>
+<td style="text-align: left;">shader storage buffer</td>
+<td style="text-align: left;">raw or structured buffer UAV</td>
+<td style="text-align: left;">buffer in device address space</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">subgroup</td>
+<td style="text-align: left;">wave</td>
+<td style="text-align: left;">SIMD-group, quadgroup</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">surface</td>
+<td style="text-align: left;">HDC, GLXDrawable, EGLSurface</td>
+<td style="text-align: left;">window</td>
+<td style="text-align: left;">layer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">swapchain</td>
+<td style="text-align: left;">Part of HDC, GLXDrawable, EGLSurface</td>
+<td style="text-align: left;">swapchain</td>
+<td style="text-align: left;">layer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">swapchain image</td>
+<td style="text-align: left;">default framebuffer</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">drawable texture</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">task shader</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">amplification shader</td>
+<td style="text-align: left;">object shader</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tessellation control shader</td>
+<td style="text-align: left;">tessellation control shader</td>
+<td style="text-align: left;">hull shader</td>
+<td style="text-align: left;">tessellation compute kernel</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tessellation evaluation shader</td>
+<td style="text-align: left;">tessellation evaluation shader</td>
+<td style="text-align: left;">domain shader</td>
+<td style="text-align: left;">post-tessellation vertex shader</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">timeline semaphore</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">D3D12 fence</td>
+<td style="text-align: left;">event</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">transform feedback</td>
+<td style="text-align: left;">transform feedback</td>
+<td style="text-align: left;">stream-out</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">uniform buffer</td>
+<td style="text-align: left;">uniform buffer</td>
+<td style="text-align: left;">constant buffer views (CBV)</td>
+<td style="text-align: left;">buffer in constant address space</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">workgroup</td>
+<td style="text-align: left;">workgroup</td>
+<td style="text-align: left;">threadgroup</td>
+<td style="text-align: left;">threadgroup</td>
+</tr>
+</tbody>
+</table>
+<p>https://registry.khronos.org/OpenGL/specs/gl/</p>
+<p>https://registry.khronos.org/SPIR-V/specs/</p>
+<p>https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html</p>
+<p>https://docs.vulkan.org/spec</p>
+<p>https://vulkan.gpuinfo.org</p>
+</section>
+<section id="directx" class="level3">
+<h3 class="anchored" data-anchor-id="directx">16 DirectX</h3>
+<p><a href="https://www.braynzarsoft.net/viewtutorial/q16390-03-initializing-directx-12">Introduction to Direct3D 12</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/340972770">（译）Introduction To Direct3D 12</a></p>
+<p><a href="https://www.yuque.com/gaoshanliushui-mbfny/sst4c5/zhlm6v">DirectX12龙书的学习笔记</a></p>
+<p>http://www.directxtutorial.com/</p>
+<p>shadermodel记录</p>
+<p>https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/hlsl-shader-model-6-0-features-for-direct3d-12</p>
+<p>https://github.com/microsoft/DirectXShaderCompiler</p>
+</section>
+<section id="metal" class="level3">
+<h3 class="anchored">17 metal</h3>
+<p>https://developer.apple.com/videos/play/tech-talks/602/ Metal 2 on A11 - Overview</p>
+<blockquote class="blockquote">
+<h1 id="图形api缓冲区buffer全面对比分析">图形API缓冲区（Buffer）全面对比分析</h1>
+<h2 id="核心buffer类型对比" class="anchored" data-anchor-id="metal">核心Buffer类型对比</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Buffer类型</th>
+<th>OpenGL名称</th>
+<th>Vulkan名称</th>
+<th>DirectX 12名称</th>
+<th>Metal名称</th>
+<th>Unity/引擎封装</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>顶点数据</strong></td>
+<td>VBO</td>
+<td>Vertex Buffer</td>
+<td>Vertex Buffer</td>
+<td>MTLBuffer</td>
+<td>Mesh.vertexBuffer</td>
+<td>存储顶点位置、法线、UV等</td>
+</tr>
+<tr class="even">
+<td><strong>索引数据</strong></td>
+<td>EBO/IBO</td>
+<td>Index Buffer</td>
+<td>Index Buffer</td>
+<td>MTLBuffer</td>
+<td>Mesh.indexBuffer</td>
+<td>存储三角形索引</td>
+</tr>
+<tr class="odd">
+<td><strong>顶点配置</strong></td>
+<td>VAO</td>
+<td>Pipeline Vertex State</td>
+<td>Input Layout</td>
+<td>MTLVertexDescriptor</td>
+<td>VertexBufferLayout</td>
+<td>定义顶点数据格式</td>
+</tr>
+<tr class="even">
+<td><strong>常量数据</strong></td>
+<td>UBO</td>
+<td>Uniform Buffer</td>
+<td>Constant Buffer</td>
+<td>MTLBuffer</td>
+<td>Material/ComputeBuffer</td>
+<td>存储MVP矩阵、材质参数</td>
+</tr>
+<tr class="odd">
+<td><strong>存储数据</strong></td>
+<td>SSBO</td>
+<td>Storage Buffer</td>
+<td>UAV/RWBuffer</td>
+<td>MTLBuffer</td>
+<td>ComputeBuffer(RW)</td>
+<td>GPU可读写数据（Compute）</td>
+</tr>
+<tr class="even">
+<td><strong>纹理/图片</strong></td>
+<td>Texture</td>
+<td>Image/Texture</td>
+<td>Texture/UAV</td>
+<td>MTLTexture</td>
+<td>Texture2D</td>
+<td>纹理数据，可读写</td>
+</tr>
+<tr class="odd">
+<td><strong>间接参数</strong></td>
+<td>Indirect Buffer</td>
+<td>Indirect Buffer</td>
+<td>Indirect Args Buffer</td>
+<td>MTLBuffer</td>
+<td>ComputeBuffer</td>
+<td>间接绘制/分发参数</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</section>
+<section id="后处理" class="level3">
+<h3 class="anchored" data-anchor-id="后处理">18 后处理</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/105909416">游戏中的后处理（一）简单的后处理</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/660319986">游戏中的后处理（四）-SpatialFilter-模糊和锐化</a></p>
+</section>
+<section id="npr" class="level3">
+<h3 class="anchored" data-anchor-id="npr">19 NPR</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/31194204">【《Real-Time Rendering 3rd》 提炼总结】(十) 第十一章 · 非真实感渲染(NPR)相关技术总结</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/546396053">Unity 罪恶装备角色渲染还原</a></p>
+<p><a href="https://www.yuque.com/sugelameiyoudi-jadcc/okgm7e/pgogrn">Unity还原《罪恶装备》中的角色卡渲</a> 这个只是简单的讲了讲</p>
+<p><a href="https://zhuanlan.zhihu.com/p/109101851">【01】从零开始的卡通渲染-描边篇</a></p>
+</section>
+<section id="tbr" class="level3">
+<h3 class="anchored" data-anchor-id="tbr">20 TBR</h3>
+<p>https://developer.samsung.com/galaxy-gamedev/resources/articles/gpu-framebuffer.html`</p>
+</section>
+<section id="gpu硬件相关" class="level3">
+<h3 class="anchored" data-anchor-id="gpu硬件相关">21 GPU硬件相关</h3>
+<p><a href="https://www.youtube.com/watch?v=h9Z4oGN89MU">How do Graphics Cards Work? Exploring GPU Architecture</a> <img src="assets/image-20260407022307770.png" class="img-fluid" alt="image-20260407022307770"><img src="assets/image-20260407022107026.png" class="img-fluid" alt="image-20260407022107026"></p>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121014846012.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121014846012</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121014855647.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121014855647</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121014907420.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121014907420</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121014922598.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121014922598</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121014934982.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121014934982</figcaption>
+</figure>
+</div></li>
+</ul>
+<p>LPDDR <strong>low-power mobile DRAM</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407022737626.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407022737626</figcaption>
+</figure>
+</div>
+<p><a href="https://www.youtube.com/watch?v=C8YtdC8mxTU&amp;list=PL6rx9p3tbsMsZ9hUvU-kDOXc8Fot04Hhu&amp;index=8">How do Video Game Graphics Work?</a></p>
+<p><a href="https://www.vmware.com/docs/exploring-the-gpu-architecture">Exploring the GPU Architecture</a></p>
+<p><a href="https://www.sigarch.org/mobile-socs/">Mobile SoCs: The Wild West of Domain Specific Architectures</a></p>
+<ul>
+<li><img src="assets/A11_APL1W72_TMHS09_bionic_800px-798x1024.jpg" class="img-fluid"></li>
+</ul>
+<p><a href="https://fgiesen.wordpress.com/2011/07/09/a-trip-through-the-graphics-pipeline-2011-index/">A trip through the Graphics Pipeline 2011: Index</a></p>
+<p><a href="https://www.nvidia.com/content/pdf/fermi_white_papers/p.glaskowsky_nvidia's_fermi-the_first_complete_gpu_architecture.pdf">NVIDIA’s Fermi: The First Complete GPU Computing Architecture</a></p>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121020135548.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121020135548</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121020120028.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121020120028</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/fermipipeline.png" class="img-fluid figure-img"></p>
+<figcaption>NVIDIA’s logical pipeline</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121020228516.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121020228516</figcaption>
+</figure>
+</div></li>
+</ul>
+<p><a href="https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf">NVIDIA TURING GPU ARCHITECTURE</a></p>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251121030550450.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251121030550450</figcaption>
+</figure>
+</div></li>
+</ul>
+<p><a href="https://developer.nvidia.com/blog/nvidia-ampere-architecture-in-depth/">NVIDIA Ampere Architecture In-Depth</a></p>
+<p><a href="https://www.nvidia.com/content/PDF/nvidia-ampere-ga-102-gpu-architecture-whitepaper-v2.pdf">NVIDIA AMPERE GA102 GPU ARCHITECTURE</a></p>
+<p>https://modal-cdn.com/gpu-glossary/terminal-gh100-sm.svg</p>
+<p><strong>NVIDIA GPU 架构演进总结</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>架构名称</th>
+<th>核心代号示例</th>
+<th>发布时间</th>
+<th>工艺制程</th>
+<th>关键特性与定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fermi</strong></td>
+<td>GF100, GF110</td>
+<td>2010年</td>
+<td>40nm</td>
+<td>首个完整的GPU计算模型，引入<strong>统一着色器</strong>、<strong>L1/L2缓存</strong>、<strong>ECC显存</strong>支持，为并行计算奠定基础。</td>
+</tr>
+<tr class="even">
+<td><strong>Kepler</strong></td>
+<td>GK104, GK110</td>
+<td>2012年</td>
+<td>28nm</td>
+<td>强调<strong>能效比</strong>，引入GPU Boost动态加速、<strong>SMX</strong>流式多处理器，计算卡K80采用双芯设计。</td>
+</tr>
+<tr class="odd">
+<td><strong>Maxwell</strong></td>
+<td>GM104, GM200</td>
+<td>2014年</td>
+<td>28nm</td>
+<td><strong>能效大幅提升</strong>，引入<strong>SMM</strong>设计，精简控制逻辑，为笔记本和主流游戏卡带来高能效。</td>
+</tr>
+<tr class="even">
+<td><strong>Pascal</strong></td>
+<td>GP104, GP100</td>
+<td>2016年</td>
+<td>16nm FinFET</td>
+<td>首款采用<strong>16nm工艺</strong>和<strong>NVLink</strong>高速互联，引入<strong>HBM2显存</strong>（GP100），游戏与计算性能飞跃。</td>
+</tr>
+<tr class="odd">
+<td><strong>Volta</strong></td>
+<td>GV100</td>
+<td>2017年</td>
+<td>12nm FinFET</td>
+<td>面向AI/HPC，首次引入<strong>Tensor Core</strong>专用AI计算单元，采用<strong>HBM2显存</strong>和更强的NVLink。</td>
+</tr>
+<tr class="even">
+<td><strong>Turing</strong></td>
+<td>TU102, TU104</td>
+<td>2018年</td>
+<td>12nm FinFET</td>
+<td><strong>革命性光追游戏架构</strong>，首次引入<strong>RT Core</strong>（光线追踪核心）和<strong>Tensor Core</strong>（用于DLSS），支持实时光线追踪。</td>
+</tr>
+<tr class="odd">
+<td><strong>Ampere</strong></td>
+<td>GA102, GA100</td>
+<td>2020年</td>
+<td>8nm / 7nm</td>
+<td><strong>第二代RT Core，第三代Tensor Core</strong>，支持PCIe 4.0。GA100计算卡采用<strong>7nm工艺</strong>和<strong>HBM2e</strong>。</td>
+</tr>
+<tr class="even">
+<td><strong>Hopper</strong></td>
+<td>GH100</td>
+<td>2022年</td>
+<td>4nm (TSMC N4)</td>
+<td>面向超大规模AI/HPC，引入<strong>Transformer引擎</strong>、<strong>动态编程指令</strong>、<strong>第四代NVLink</strong>和<strong>HBM3</strong>。</td>
+</tr>
+<tr class="odd">
+<td><strong>Blackwell</strong></td>
+<td>GB100, GB200</td>
+<td>2024年</td>
+<td>定制4NP工艺</td>
+<td>新一代AI计算平台，采用<strong>芯片到芯片</strong>超高速互联，集成<strong>第二代Transformer引擎</strong>，性能大幅提升。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AMD GPU 架构演进总结</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>架构名称</th>
+<th>核心代号示例</th>
+<th>发布时间</th>
+<th>工艺制程</th>
+<th>关键特性与定位</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GCN</strong></td>
+<td>Tahiti, Hawaii, Fiji</td>
+<td>2012年起</td>
+<td>28nm</td>
+<td><strong>图形核心下一代</strong>，强调<strong>通用计算能力</strong>，引入<strong>异步计算引擎</strong>，为多代产品（HD 7000至RX 500系列）基础。</td>
+</tr>
+<tr class="even">
+<td><strong>RDNA</strong></td>
+<td>Navi 10</td>
+<td>2019年</td>
+<td>7nm</td>
+<td><strong>全新游戏架构</strong>，旨在提升<strong>能效和每时钟性能</strong>。引入<strong>CU</strong>计算单元新设计，支持PCIe 4.0。</td>
+</tr>
+<tr class="odd">
+<td><strong>RDNA 2</strong></td>
+<td>Navi 21, Navi 22</td>
+<td>2020年</td>
+<td>7nm</td>
+<td><strong>首次引入硬件光线追踪</strong>（Ray Accelerators）和<strong>无限缓存</strong>技术，显著提升带宽和能效，用于RX 6000系列及游戏主机。</td>
+</tr>
+<tr class="even">
+<td><strong>RDNA 3</strong></td>
+<td>Navi 31, Navi 32</td>
+<td>2022年</td>
+<td>5nm/6nm</td>
+<td><strong>首款采用小芯片设计</strong>的游戏GPU，<strong>统一着色器</strong>升级，<strong>第二代光线追踪</strong>和<strong>AI加速器</strong>，支持DisplayPort 2.1。</td>
+</tr>
+<tr class="odd">
+<td><strong>CDNA</strong></td>
+<td>Arcturus, Aldebaran</td>
+<td>2020年起</td>
+<td>7nm/5nm</td>
+<td><strong>计算专用架构</strong>，专为AI/HPC设计，舍弃图形管线，强化<strong>矩阵计算核心</strong>（Matrix Cores）和高速互联（Infinity Fabric）。</td>
+</tr>
+<tr class="even">
+<td><strong>CDNA 2/3</strong></td>
+<td>MI250X, MI300X</td>
+<td>2021/2023年</td>
+<td>6nm/5nm/3D封装</td>
+<td>采用<strong>先进封装</strong>（如3D Chiplet），集成<strong>CPU+GPU</strong>（MI300A）或<strong>纯GPU</strong>（MI300X），配备<strong>HBM3</strong>，面向百亿亿次计算。</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://zhuanlan.zhihu.com/p/626636620">【Shader篇】GPU架构与其逻辑管线</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Di4y177Dj/?vd_source=f36a7172bd1589e02d503d1d14733d17">Performance Optimization Guidelines and the GPU Architecture behind them</a></p>
+<p><a href="https://www.cnblogs.com/timlly/p/11471507.html">深入GPU硬件架构及运行机制</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/259760974">IMR, TBR, TBDR 还有GPU架构方面的一些理解</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/654020345">【Shader篇】移动端GPU架构及其管线</a></p>
+<p><a href="https://developer.arm.com/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-1">Arm GPU Training</a></p>
+<blockquote class="blockquote">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Module 1</th>
+<th>Module 2</th>
+<th>Module 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-1">1.1 Introduction to mobile systems</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-1">2.1 The Mali GPU family</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-1">3.1 Introducing Arm Performance Studio</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-2">1.2 The rendering pipeline</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-2">2.2 Best practice principles for mobile game development</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-2">3.2 Performance Advisor</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-3">1.3 GPU architecture</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-3">2.3 Frame construction</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-3">3.3 Streamline</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-4">1.4 Hardware shader cores</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-4">2.4 Engine and API best practices</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-4">3.4 Graphics Analyzer</a></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-5">2.5 Content best practices</a></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-5">3.5 Mali Offline Compiler</a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-6">2.6 Shaders best practices</a></td>
+<td><a href="https://developer.arm.com/Additional%20Resources/Video%20Tutorials/Capture%20and%20analyze%20a%20problem%20frame%20with%20Frame%20Advisor">3.6 Frame Advisor</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251205030336708.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251205030336708</figcaption>
+</figure>
+</div>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251205030644791.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251205030644791</figcaption>
+</figure>
+</div></li>
+<li>1.2 The rendering pipeline</li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251206074626798.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251206074626798</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20251206075800878.png" class="img-fluid figure-img"></p>
+<figcaption>image-20251206075800878</figcaption>
+</figure>
+</div></li>
+<li><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-3">1.3 GPU architecture</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407021052797.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407021052797</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407021110869.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407021110869</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407021514451.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407021514451</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407021547016.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407021547016</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407021655893.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407021655893</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407023607278.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407023607278</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260407023739939.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260407023739939</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP1-4">1.4 Hardware shader cores</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260408030538746.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260408030538746</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260408030754686.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260408030754686</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260408030815739.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260408030815739</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-1">2.1 The Mali GPU family</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260408033830028.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260408033830028</figcaption>
+</figure>
+</div></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-2">2.2 Best practice principles for mobile game development</a></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260408034742547.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260408034742547</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260408035250097.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260408035250097</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-3">2.3 Frame construction</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260409024628812.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260409024628812</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260409025407969.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260409025407969</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260409030138817.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260409030138817</figcaption>
+</figure>
+</div></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-4">2.4 Engine and API best practices</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-5">2.5 Content best practices</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP2-6">2.6 Shaders best practices</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-1">3.1 Introducing Arm Performance Studio</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-2">3.2 Performance Advisor</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-3">3.3 Streamline</a> <a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-3">3.3 Streamline</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-4">3.4 Graphics Analyzer</a></p></li>
+<li><p><a href="https://developer.arm.com/dev2/Additional%20Resources/Video%20Tutorials/Arm%20Mali%20GPU%20Training%20-%20EP3-5">3.5 Mali Offline Compiler</a></p></li>
+<li><p><a href="https://developer.arm.com/Additional%20Resources/Video%20Tutorials/Capture%20and%20analyze%20a%20problem%20frame%20with%20Frame%20Advisor">3.6 Frame Advisor</a> <a href="https://developer.arm.com/Additional%20Resources/Video%20Tutorials/Capture%20and%20analyze%20a%20problem%20frame%20with%20Frame%20Advisor">3.6 Frame Advisor</a></p></li>
+</ul></li>
+</ul>
+<p><a href="https://developer.arm.com/documentation/102811/0110/Shader-core-data-pathhttps://developer.arm.com/documentation/102811/0110/Shader-core-data-path"><strong>Arm Mali-G510 Performance Counters Reference Guide</strong></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/e97aadfce6cd408682641d284185e332.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260524170733793.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260524170733793</figcaption>
+</figure>
+</div>
+<p><a href="https://github.com/GPUOpen-LibrariesAndSDKs">GPUOpen-LibrariesAndSDKs</a>/<strong><a href="https://github.com/GPUOpen-LibrariesAndSDKs/DepthBoundsTest11">DepthBoundsTest11</a></strong></p>
+<p><a href="http://vulkan.gpuinfo.org/">Vulkan Hardware Database</a></p>
+<p><a href="https://developer.arm.com/documentation/102662/0100/Tile-based-GPUs">Tile-based-GPUs</a></p>
+<ul>
+<li><p>Figure 1. Hardware data flow and interactions</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260406020356684.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260406020356684</figcaption>
+</figure>
+</div></li>
+</ul>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2021/01/understanding-gpu-caches/">Understanding GPU caches</a></p>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2021/07/gpu-architecture-types-explained/">gpu-architecture-types-explained</a></p>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2020/11/memory-types-of-discrete-gpus/">Memory types of discrete GPUs</a></p>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2022/02/simd-in-the-gpu-world/">SIMD in the GPU world</a></p>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2021/10/multisampling-primer/">Multisampling primer</a></p>
+<p><a href="https://www.rastergrid.com/blog/gpu-tech/2026/03/vulkan-memory-barriers-and-image-layouts-explained/">Vulkan memory barriers and image layouts explained</a></p>
+<ul>
+<li><p><img src="assets/GPUArchIMR.png" class="img-fluid" alt="img"><strong>Simplified illustration of the immediate-mode rendering pipeline.</strong></p></li>
+<li><p><img src="assets/GPUArchTBR.png" class="img-fluid" alt="img"><strong>Simplified illustration of the tile-based rendering pipeline.</strong></p></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/DataPathIMR.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p><strong>Key data paths of immediate-mode GPUs.</strong></p></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/DataPathTBR.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p><strong>Key data paths of tile-based GPUs.</strong></p></li>
+<li><p><img src="assets/EarlyLateDepthTest.png" class="img-fluid" alt="img"><strong>Simplified illustration of early/late depth testing on IMR GPUs.</strong></p></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/TBRMSAA.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p><strong>Multisampled rasterization on tile-based GPU architectures</strong>. Note that multisampled data only exists on-chip.</p></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/TBRDeferred.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p><strong>Deferred rendering on tile-based GPU architectures.</strong> Note that G-Buffer data only exists on-chip.</p></li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=4Pi424VJgcE">Fundamentals of GPU Architecture: Introduction</a></p>
+<p><a href="https://mediaservices.cmu.edu/channel/15-418+Parallel+Computer+Architecture+and+Programming/84714321">15-418 Parallel Computer Architecture and Programming</a></p>
+<p><a href="">GPU Performance Analysis and Optimization</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260428031248577.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260428031248577</figcaption>
+</figure>
+</div>
+<p><a href="https://cloud.tencent.com/developer/article/1891497">英伟达 GPU 十年架构演进史</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/31825598174">这篇GPU学习笔记，详细整理了其工作原理、编程模型和架构设计</a></p>
+</section>
+<section id="颜色" class="level3">
+<h3 class="anchored" data-anchor-id="颜色">22 颜色</h3>
+<p><a href="https://www.keepnight.com/archives/2063/">关于颜色的一点认识（一）</a></p>
+<p><a href="https://www.keepnight.com/archives/2180/">关于颜色的一点认识（二）</a></p>
+<p><a href="https://news.wii.tw/viewthread.php?tid=44859">流明和坎德拉的關係</a></p>
+<p><a href="http://share.hamamatsu.com.cn/specialDetail/838.html">以眼睛的名义：一些光度学概念的解析</a></p>
+<p><a href="http://www.echungsensor.com/article/5345479591810060">什么是光通量？怎么区分光强、光通量、照度、亮度？</a></p>
+<p><a href="https://ciechanow.ski/color-spaces/">Color Spaces</a></p>
+<p><a href="https://www.muyanru.com/color/">色彩科学</a></p>
+</section>
+<section id="compute-shader" class="level3">
+<h3 class="anchored" data-anchor-id="compute-shader">23 compute shader</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/368307575">UnityCompute Shader的基础介绍与使用</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/576957395">【UnityShader】计算着色器（Compute Shader） （9）</a></p>
+<p>https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/sm5-attributes-numthreads?redirectedfrom=MSDN</p>
+<ul>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/threadgroupids.png" class="img-fluid figure-img"></p>
+<figcaption>illustration of the relationship between dispatch, thread groups, and threads</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20260406114636866.png" class="img-fluid figure-img"></p>
+<figcaption>image-20260406114636866</figcaption>
+</figure>
+</div></li>
+</ul>
+</section>
+<section id="gems" class="level3">
+<h3 class="anchored" data-anchor-id="gems">24 Gems</h3>
+<ul>
+<li><a href="https://developer.nvidia.com/gpugems">GPU Gems</a>
+<ul>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects">Part I: Natural Effects</a>
+<ul>
+<li><a href="">Chapter 1. Effective Water Simulation from Physical Models</a></li>
+</ul></li>
+</ul></li>
+<li><a href="https://developer.nvidia.com/gpugems2">GPU Gems 2</a>
+<ul>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering">Part III: High-Quality Rendering</a></li>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer">Part IV: General-Purpose Computation on GPUS: A Primer</a>
+<ul>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer/chapter-30-geforce-6-series-gpu">Chapter 30. The GeForce 6 Series GPU Architecture</a></li>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer/chapter-36-stream-reduction">Chapter 36. Stream Reduction Operations for GPGPU Applications</a></li>
+</ul></li>
+</ul></li>
+<li><a href="https://developer.nvidia.com/gpugems3">GPU Gems 3</a>
+<ul>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems3/part-v-physics-simulation">Part V: Physics Simulation</a>
+<ul>
+<li><a href="https://developer.nvidia.com/gpugems/gpugems3/part-v-physics-simulation/chapter-30-real-time-simulation-and-rendering-3d-fluids">Chapter 30. Real-Time Simulation and Rendering of 3D Fluids</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="cuda" class="level3">
+<h3 class="anchored" data-anchor-id="cuda">25 CUDA</h3>
+<p><a href="https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf">Optimizing Parallel Reduction in CUDA</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/v2-e21ef511241007b5f008bf74fc7f214b_r.png" class="img-fluid figure-img"></p>
+<figcaption>preview</figcaption>
+</figure>
+</div>
+<p><a href="https://zhuanlan.zhihu.com/p/426978026">深入浅出GPU优化系列：reduce优化</a></p>
+</section>
+<section id="其它内容" class="level3">
+<h3 class="anchored" data-anchor-id="其它内容">其它内容</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/382687738">UE5渲染技术简介：Nanite篇</a> <strong>洛城 好多引用</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/66558476">Gamma、Linear、sRGB 和Unity Color Space，你真懂了吗？</a></p>
+<p><a href="https://bbtarzan12.github.io/Marching-Squares-Part-1/">Marching Squares - Part 1 | Algorithm</a></p>
+<p>https://docs.unity3d.com/2022.3/Documentation/Manual/SL-PlatformDifferences.html</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/GssmAgDWsAA9QuN.jpeg" class="img-fluid figure-img"></p>
+<figcaption>图像</figcaption>
+</figure>
+</div>
+<p>https://research.nvidia.com/publications nvidia论文</p>
+<p><a href="https://community.arm.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-20-66/siggraph_2D00_2018_2D00_mmg_2D00_1_2D00_101_2D00_andrewg.pdf">Moving Mobile Graphics: Mobile Graphics 101</a></p>
+<p><a href="https://www.muyanru.com/pipeline/article/">Pipeline 相关文章</a> 游戏工业化</p>
+<p><a href="https://github.com/Graphics-Programming-Virtual-Meetup/meeting-notes">Graphics Programming Virtual Meetup Meeting Notes</a></p>
+<ul>
+<li>2021
+<ul>
+<li><a href="https://www.youtube.com/watch?v=SVm0HanVTRw">Exploration of Bindless Rendering in Vulkan, DirectX 12, and OpenGL [2021-04-21]</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="动画" class="level2">
+<h2 class="anchored" data-anchor-id="动画">动画</h2>
+<p><a href="https://blog.csdn.net/ttm2d/article/details/108360100">关于骨骼（Skeleton）、绑定（Rigging）、蒙皮（Skinning）、刷权重（Weight Painting）那些事儿</a></p>
+</section>
+<section id="图形相关数学" class="level2">
+<h2 class="anchored" data-anchor-id="图形相关数学">图形相关数学</h2>
+<p><a href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform">正态分布随机的生成方法</a></p>
+<ol type="1">
+<li><p>变换矩阵及推导 ==123==</p></li>
+<li><p>欧拉角、矩阵、四元数表示旋转的区别和优缺点</p>
+<p><a href="https://www.youtube.com/watch?v=d4EgbgTm0Bg">使用立体投影可视化四元数（4d 数字）</a></p>
+<p><a href="https://www.youtube.com/watch?v=zjMuIxRvygQ">四元数和 3d 旋转，交互式解释</a></p>
+<p><a href="https://www.youtube.com/watch?v=zc8b2Jo7mno">Euler (gimbal lock) Explained</a></p>
+<p><a href="https://www.youtube.com/watch?v=syQnn_xuB8U">Humane Rigging 03 - 3D Bouncy Ball 04 - Axis Angle &amp; Euler Rotation</a></p>
+<p><a href="https://www.youtube.com/watch?v=4mXL751ko0w">Humane Rigging 03 - 3D Bouncy Ball 05 - Quaternion Rotation</a></p>
+<p><a href="https://www.youtube.com/watch?v=3BR8tK-LuB0">Fantastic Quaternions - Numberphile</a></p>
+<p><a href="https://www.youtube.com/watch?v=_MPbfiN55X4">How to think about Quaternions without your brain exploding</a></p></li>
+</ol>
+<p>《游戏引擎架构》P164</p>
+<ol start="3" type="1">
+<li><p>如何判断一个点在三角形(矩形、扇形)内</p>
+<p><a href="https://zhuanlan.zhihu.com/p/106253152">学习｜判断一个点是否在三角形内</a></p>
+<p>重心坐标、向量叉乘、面积法</p>
+<p>https://github.com/ssloy/tinyrenderer/wiki/Lesson-2:-Triangle-rasterization-and-back-face-culling 重心坐标</p></li>
+<li><p>如何判断一条光线是否与一个三角形相交</p>
+<p>先判断光线是否和三角形所在的面相交，再判断这个交点是否在三角形内，判断点是否在三角形内；</p>
+<p>MT算法 可以直接拿光线方程和三角形顶点 拿重心坐标描述的方式计算出来</p></li>
+<li><p>如何判断两个三角形是否相交</p></li>
+<li><p>杂项</p>
+<p><a href="https://zhuanlan.zhihu.com/p/103546030">关于顶点的法线、切线、副切线</a></p>
+<p><a href="https://blog.csdn.net/Motarookie/article/details/123507610">一文彻底掌握什么是法线贴图、切线空间、TBN矩阵</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/447898464">在圆中均匀分布随机点</a></p>
+<p><a href="https://juejin.cn/post/7141771746562015246">图形学的数学基础（二十三）：立体角</a></p></li>
+</ol>
+<section id="光线与物体相交求交点" class="level3">
+<h3 class="anchored" data-anchor-id="光线与物体相交求交点">光线与物体相交求交点</h3>
+<p>https://www.realtimerendering.com/intersections.html</p>
+<p>https://iquilezles.org/articles/intersectors/</p>
+<p>https://iquilezles.org/articles/ SDF raymarching</p>
+</section>
+<section id="傅里叶变换" class="level3">
+<h3 class="anchored" data-anchor-id="傅里叶变换">傅里叶变换</h3>
+<p><a href="https://www.cnblogs.com/alexanderkun/p/8149059.html">最容易理解的对卷积(convolution)的解释</a></p>
+<p><a href="https://www.cnblogs.com/lllcccddd/p/10641757.html">针对于高频低频图像的理解</a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLEUKC88yR4_al2oa2LF0SKS2RPpxmWg3n">傅立叶变换基础系列</a></p>
+<ul>
+<li><p>傅立叶变换夯实基础系列视频</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Zp4y1Q7RB/?spm_id_from=333.1387.upload.video_card.click&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">傅立叶变换夯实基础系列视频（3）复数形式的推导</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Qk4y1B7ri?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">傅立叶变换夯实基础系列视频（4）复数基函数的性质</a></li>
+<li><a href="https://www.bilibili.com/video/BV1aT4y1J7JP?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">傅立叶变换夯实基础系列视频（5）离散傅立叶变换</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Rk4y1q78y?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">傅立叶变换夯实基础系列视频（6）离散傅立叶变换（二）</a></li>
+<li><a href="https://www.bilibili.com/video/BV1mK4y1v7F5/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">傅立叶变换夯实基础系列视频（7）快速傅立叶变换FFT</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Wt4y1v7JS/?spm_id_from=333.999.0.0&amp;vd_source=f36a7172bd1589e02d503d1d14733d17">傅立叶变换夯实基础系列视频（8）卷积</a></li>
+</ul></li>
+<li><p><a href="https://space.bilibili.com/230105574/channel/collectiondetail?sid=1814734&amp;spm_id_from=333.788.0.0">【工程数学基础】</a></p>
+<ul>
+<li><a href="https://www.bilibili.com/video/av28979548/">【工程数学基础】5_如何证明宇宙第一美公式？？—欧拉公式证明</a></li>
+<li><a href="https://www.bilibili.com/video/av32271249/">【工程数学基础】6_SinX=2? 复变函数 欧拉公式</a></li>
+</ul></li>
+<li><p><a href="https://space.bilibili.com/230105574/channel/collectiondetail?sid=1814755&amp;spm_id_from=333.788.0.0">傅里叶级数与傅里叶变换</a></p>
+<ul>
+<li><p><a href="https://www.bilibili.com/video/BV13b411P7mU">纯干货数学推导_傅里叶级数与傅里叶变换_Part4_傅里叶级数的复数形式</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1jt411U7Bp">纯干货数学推导_傅里叶级数与傅里叶变换_Part5_从傅里叶级数推导傅里叶变换</a></p>
+<p>讲的很好</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/image-20250507161432875.png" class="img-fluid figure-img"></p>
+<figcaption>image-20250507161432875</figcaption>
+</figure>
+</div>
+<p>所以傅里叶变换 意思是求出系数</p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1St41117fH">纯干货数学推导_傅里叶级数与傅里叶变换_Part6_总结与闲话（完）</a></p></li>
+</ul></li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/428216241">卷积和卷积定理</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/28478034">[CV] 通俗理解『卷积』——从傅里叶变换到滤波器</a></p>
+<p><a href="https://www.zhihu.com/question/19714540">如何理解傅里叶变换公式？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/360307841">傅里叶级数、傅里叶变换、卷积的”魔幻关系“</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/19763358">傅里叶分析之掐死教程（完整版）更新于2014.06.06</a></p>
+<p><a href="https://www.zhihu.com/question/26448935">如何理解傅里叶变换时域连续对应频域非周期，时域离散对应频域周期？</a></p>
+</section>
+<section id="采样" class="level3">
+<h3 class="anchored" data-anchor-id="采样">采样</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/712224755">图形随笔：奇形怪状的蒙特卡洛</a></p>
+<p><a href="https://baileyswu.github.io/2019/03/importance-sampling/">重要性采样</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/361227286">【知识补充】蒙特卡洛与重要性采样</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20197323">低差异序列（一）- 常见序列的定义及性质</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20374706">低差异序列（二）- 高效实现以及应用</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/360420413">重要性采样和多重重要性采样在路径追踪中的应用</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/146144853">蒙特卡洛积分</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E9%80%86%E5%8F%98%E6%8D%A2%E9%87%87%E6%A0%B7">逆变换采样</a></p>
+</section>
+</section>
+<section id="油管博主" class="level2">
+<h2 class="anchored" data-anchor-id="油管博主">油管博主</h2>
+<section id="simondev-gpgraphics-programmer" class="level3">
+<h3 class="anchored" data-anchor-id="simondev-gpgraphics-programmer">SimonDev GP(graphics programmer)</h3>
+<p><a href="https://www.youtube.com/watch?v=hf27qsQPRLQ">When Optimisations Work, But for the Wrong Reasons</a></p>
+</section>
+<section id="blue1brown" class="level3">
+<h3 class="anchored" data-anchor-id="blue1brown">3Blue1Brown</h3>
+<p><a href="https://www.youtube.com/watch?v=KuXjwB4LzSA">But what is a convolution?</a></p>
+<p><a href="https://www.youtube.com/watch?v=IaSGqQa5O-M">Convolutions | Why X+Y in probability is a beautiful mess</a></p>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of calculus</a>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=m2MIpDrF7Es">What’s so special about Euler’s number e? | Chapter 5, Essence of calculus</a></li>
+</ul></li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=mvmuCPvRoWQ&amp;t=1191s">Euler’s formula with introductory group theory</a></p>
+<p><a href="https://www.youtube.com/watch?v=F_0yfvm0UoU&amp;t=8s">e to the pi i, a nontraditional take (old version)</a></p>
+<p><a href="https://www.youtube.com/watch?v=r6sGWTCMz2k">But what is a Fourier series? From heat flow to drawing with circles | DE4</a></p>
+<p><a href="https://www.youtube.com/watch?v=v0YEaeIClKY">e^(iπ) in 3.14 minutes, using dynamics | DE5</a></p>
+<p><a href="https://www.youtube.com/watch?v=spUNpyF58BY">But what is the Fourier Transform? A visual introduction.</a></p>
+<p><a href="https://www.youtube.com/watch?v=MBnnXbOM5S4">The more general uncertainty principle, regarding Fourier transforms</a></p>
+<p><a href="https://www.youtube.com/watch?v=d4EgbgTm0Bg">Visualizing quaternions (4d numbers) with stereographic projection</a></p>
+<p><a href="https://www.youtube.com/watch?v=zjMuIxRvygQ">Quaternions and 3d rotation, explained interactively</a></p>
+</section>
+<section id="the-julia-programming-language" class="level3">
+<h3 class="anchored" data-anchor-id="the-julia-programming-language">The Julia Programming Language</h3>
+<p><a href="https://www.youtube.com/watch?v=8rrHTtUzyZA">Convolutions in Image Processing | Week 1, lecture 6 | MIT 18.S191 Fall 2020</a></p>
+</section>
+<section id="physics-videos-by-eugene-khutoryansky" class="level3">
+<h3 class="anchored" data-anchor-id="physics-videos-by-eugene-khutoryansky"><strong>Physics Videos by Eugene Khutoryansky</strong></h3>
+<p><a href="https://www.youtube.com/watch?v=r18Gi8lSkfM">傅立叶变换，傅立叶序列以及频谱</a></p>
+</section>
+<section id="reducible" class="level3">
+<h3 class="anchored" data-anchor-id="reducible"><a href="https://www.youtube.com/@Reducible">Reducible</a></h3>
+<p><a href="https://www.youtube.com/watch?v=h7apO7q16V0">The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?</a></p>
+</section>
+</section>
+<section id="不错的语雀" class="level2">
+<h2 class="anchored" data-anchor-id="不错的语雀">不错的语雀</h2>
+<p><a href="https://www.yuque.com/gaoshanliushui-mbfny/sst4c5/zhlm6v">DX12龙书的学习总结</a></p>
+<p>百人计划不错的笔记</p>
+<ul>
+<li>https://www.yuque.com/sugelameiyoudi-jadcc/okgm7e/</li>
+<li>https://www.yuque.com/unknow301/np1aul/fpmg9q</li>
+<li>https://www.yuque.com/6527chen/ldyt32/xpkqg4</li>
+</ul>
+</section>
+<section id="好的分享" class="level2">
+<h2 class="anchored" data-anchor-id="好的分享">好的分享</h2>
+<ul>
+<li>games202作业
+<ul>
+<li><a href="https://www.drflower.top/posts/ad8277ee/">作业1:实时阴影 PCF PCSS</a></li>
+<li><a href="https://www.drflower.top/posts/9f24be76/">作业2:Precomputed Radiance Transfer</a></li>
+<li><a href="https://www.drflower.top/posts/8cc56e6d/">作业3:Screen Space ray tracing</a></li>
+<li><a href="https://www.drflower.top/posts/45c3d0c2/">作业4:Kulla-Conty BRDF</a></li>
+<li><a href="https://www.drflower.top/posts/b9122261/">作业5:实时光线追踪降噪</a></li>
+</ul></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
