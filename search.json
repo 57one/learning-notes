@@ -1,0 +1,104 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Learning Notes",
+    "section": "",
+    "text": "这里整理 AI 与游戏开发相关的学习笔记。",
+    "crumbs": [
+      "首页",
+      "Learning Notes"
+    ]
+  },
+  {
+    "objectID": "index.html#模块",
+    "href": "index.html#模块",
+    "title": "Learning Notes",
+    "section": "模块",
+    "text": "模块\n\nAI，包括 AI infra\n游戏开发，包括 图形学",
+    "crumbs": [
+      "首页",
+      "Learning Notes"
+    ]
+  },
+  {
+    "objectID": "posts/ai/index.html",
+    "href": "posts/ai/index.html",
+    "title": "AI",
+    "section": "",
+    "text": "AI 相关学习笔记。",
+    "crumbs": [
+      "首页",
+      "AI"
+    ]
+  },
+  {
+    "objectID": "posts/ai/index.html#子模块",
+    "href": "posts/ai/index.html#子模块",
+    "title": "AI",
+    "section": "子模块",
+    "text": "子模块\n\nAI infra",
+    "crumbs": [
+      "首页",
+      "AI"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/graphics/index.html",
+    "href": "posts/game-development/graphics/index.html",
+    "title": "图形学",
+    "section": "",
+    "text": "图形学、渲染管线和相关教程的学习笔记。",
+    "crumbs": [
+      "首页",
+      "游戏开发",
+      "图形学"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/graphics/index.html#文章",
+    "href": "posts/game-development/graphics/index.html#文章",
+    "title": "图形学",
+    "section": "文章",
+    "text": "文章\n\n文章记录",
+    "crumbs": [
+      "首页",
+      "游戏开发",
+      "图形学"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/index.html",
+    "href": "posts/game-development/index.html",
+    "title": "游戏开发",
+    "section": "",
+    "text": "游戏开发相关学习笔记。",
+    "crumbs": [
+      "首页",
+      "游戏开发"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/index.html#子模块",
+    "href": "posts/game-development/index.html#子模块",
+    "title": "游戏开发",
+    "section": "子模块",
+    "text": "子模块\n\n图形学",
+    "crumbs": [
+      "首页",
+      "游戏开发"
+    ]
+  },
+  {
+    "objectID": "posts/ai/infra/index.html",
+    "href": "posts/ai/infra/index.html",
+    "title": "AI infra",
+    "section": "",
+    "text": "AI 基础设施相关学习笔记。",
+    "crumbs": [
+      "首页",
+      "AI",
+      "AI infra"
+    ]
+  }
+]
