@@ -1,46 +1,108 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Learning Notes",
+    "objectID": "notebooks/ai/PositionEmbedding.html",
+    "href": "notebooks/ai/PositionEmbedding.html",
+    "title": "Position Embedding",
     "section": "",
-    "text": "这里整理 AI 与游戏开发相关的学习笔记。",
+    "text": "Code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# transformer论文中的三角位置编码\ndef sinusoidal_position_embedding(max_length: int, dim: int, base: float = 10_000.0) -&gt; np.ndarray:\n    \"\"\"返回 Transformer 原始论文使用的正弦位置编码。\"\"\"\n    if max_length &lt;= 0 or dim &lt;= 0:\n        raise ValueError(\"max_length 和 dim 必须为正整数\")\n\n    positions = np.arange(max_length, dtype=np.float32)[:, np.newaxis]\n    even_dimensions = np.arange(0, dim, 2, dtype=np.float32)\n    angle_rates = np.exp(-np.log(base) * even_dimensions / dim)\n    angles = positions * angle_rates[np.newaxis, :]\n\n    embeddings = np.zeros((max_length, dim), dtype=np.float32)\n    embeddings[:, 0::2] = np.sin(angles)\n    embeddings[:, 1::2] = np.cos(angles[:, : embeddings[:, 1::2].shape[1]])\n    return embeddings\n\n\n\n\nCode\nmax_length, dim = 128, 64\nposition_embedding = sinusoidal_position_embedding(max_length, dim)\n\nprint(position_embedding.shape)\nposition_embedding[:3, :8]\n\n\n(128, 64)\n\n\narray([[ 0.        ,  1.        ,  0.        ,  1.        ,  0.        ,\n         1.        ,  0.        ,  1.        ],\n       [ 0.84147096,  0.5403023 ,  0.68156135,  0.731761  ,  0.53316844,\n         0.84600914,  0.4093089 ,  0.91239583],\n       [ 0.9092974 , -0.41614684,  0.99748   ,  0.07094825,  0.9021307 ,\n         0.43146282,  0.74690354,  0.6649324 ]], dtype=float32)\n\n\n\n\n横轴为嵌入维度，纵轴为 token 的位置。不同频率的波形使模型能够区分位置，并推导相对距离关系。\n\n\nCode\nfig, ax = plt.subplots(figsize=(10, 5))\nimage = ax.imshow(position_embedding, aspect=\"auto\", cmap=\"viridis\")\nax.set(xlabel=\"embedding dimension\", ylabel=\"position\", title=\"Sinusoidal Position Embedding\")\nfig.colorbar(image, ax=ax, label=\"value\")\nplt.show()",
     "crumbs": [
       "首页",
-      "Learning Notes"
+      "JupyterLab",
+      "AI",
+      "Position Embedding"
     ]
   },
   {
-    "objectID": "index.html#模块",
-    "href": "index.html#模块",
-    "title": "Learning Notes",
-    "section": "模块",
-    "text": "模块\n\nAI，包括 AI infra\n游戏开发，包括 图形学",
-    "crumbs": [
-      "首页",
-      "Learning Notes"
-    ]
-  },
-  {
-    "objectID": "posts/ai/index.html",
-    "href": "posts/ai/index.html",
-    "title": "AI",
+    "objectID": "notebooks/ai/PositionEmbedding.html#可视化",
+    "href": "notebooks/ai/PositionEmbedding.html#可视化",
+    "title": "Position Embedding",
     "section": "",
-    "text": "AI 相关学习笔记。",
+    "text": "横轴为嵌入维度，纵轴为 token 的位置。不同频率的波形使模型能够区分位置，并推导相对距离关系。\n\n\nCode\nfig, ax = plt.subplots(figsize=(10, 5))\nimage = ax.imshow(position_embedding, aspect=\"auto\", cmap=\"viridis\")\nax.set(xlabel=\"embedding dimension\", ylabel=\"position\", title=\"Sinusoidal Position Embedding\")\nfig.colorbar(image, ax=ax, label=\"value\")\nplt.show()",
     "crumbs": [
       "首页",
-      "AI"
+      "JupyterLab",
+      "AI",
+      "Position Embedding"
     ]
   },
   {
-    "objectID": "posts/ai/index.html#子模块",
-    "href": "posts/ai/index.html#子模块",
-    "title": "AI",
+    "objectID": "notebooks/index.html",
+    "href": "notebooks/index.html",
+    "title": "JupyterLab",
+    "section": "",
+    "text": "这里收录可在 JupyterLab 中交互运行、并由 Quarto 发布为站点页面的学习笔记。",
+    "crumbs": [
+      "首页",
+      "JupyterLab"
+    ]
+  },
+  {
+    "objectID": "notebooks/index.html#ai",
+    "href": "notebooks/index.html#ai",
+    "title": "JupyterLab",
+    "section": "AI",
+    "text": "AI\n\nPosition Embedding",
+    "crumbs": [
+      "首页",
+      "JupyterLab"
+    ]
+  },
+  {
+    "objectID": "posts/ai/infra/index.html",
+    "href": "posts/ai/infra/index.html",
+    "title": "AI infra",
+    "section": "",
+    "text": "AI 基础设施相关学习笔记。",
+    "crumbs": [
+      "首页",
+      "AI",
+      "AI infra"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/index.html",
+    "href": "posts/game-development/index.html",
+    "title": "游戏开发",
+    "section": "",
+    "text": "游戏开发相关学习笔记。",
+    "crumbs": [
+      "首页",
+      "游戏开发"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/index.html#子模块",
+    "href": "posts/game-development/index.html#子模块",
+    "title": "游戏开发",
     "section": "子模块",
-    "text": "子模块\n\nAI infra",
+    "text": "子模块\n\n图形学",
     "crumbs": [
       "首页",
-      "AI"
+      "游戏开发"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/graphics/index.html",
+    "href": "posts/game-development/graphics/index.html",
+    "title": "图形学",
+    "section": "",
+    "text": "图形学、渲染管线和相关教程的学习笔记。",
+    "crumbs": [
+      "首页",
+      "游戏开发",
+      "图形学"
+    ]
+  },
+  {
+    "objectID": "posts/game-development/graphics/index.html#文章",
+    "href": "posts/game-development/graphics/index.html#文章",
+    "title": "图形学",
+    "section": "文章",
+    "text": "文章\n\n文章记录",
+    "crumbs": [
+      "首页",
+      "游戏开发",
+      "图形学"
     ]
   },
   {
@@ -148,61 +210,71 @@
     ]
   },
   {
-    "objectID": "posts/game-development/graphics/index.html",
-    "href": "posts/game-development/graphics/index.html",
-    "title": "图形学",
+    "objectID": "posts/ai/index.html",
+    "href": "posts/ai/index.html",
+    "title": "AI",
     "section": "",
-    "text": "图形学、渲染管线和相关教程的学习笔记。",
+    "text": "AI 相关学习笔记。",
     "crumbs": [
       "首页",
-      "游戏开发",
-      "图形学"
+      "AI"
     ]
   },
   {
-    "objectID": "posts/game-development/graphics/index.html#文章",
-    "href": "posts/game-development/graphics/index.html#文章",
-    "title": "图形学",
-    "section": "文章",
-    "text": "文章\n\n文章记录",
-    "crumbs": [
-      "首页",
-      "游戏开发",
-      "图形学"
-    ]
-  },
-  {
-    "objectID": "posts/game-development/index.html",
-    "href": "posts/game-development/index.html",
-    "title": "游戏开发",
-    "section": "",
-    "text": "游戏开发相关学习笔记。",
-    "crumbs": [
-      "首页",
-      "游戏开发"
-    ]
-  },
-  {
-    "objectID": "posts/game-development/index.html#子模块",
-    "href": "posts/game-development/index.html#子模块",
-    "title": "游戏开发",
+    "objectID": "posts/ai/index.html#子模块",
+    "href": "posts/ai/index.html#子模块",
+    "title": "AI",
     "section": "子模块",
-    "text": "子模块\n\n图形学",
+    "text": "子模块\n\nAI infra",
     "crumbs": [
       "首页",
-      "游戏开发"
+      "AI"
     ]
   },
   {
-    "objectID": "posts/ai/infra/index.html",
-    "href": "posts/ai/infra/index.html",
-    "title": "AI infra",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Learning Notes",
     "section": "",
-    "text": "AI 基础设施相关学习笔记。",
+    "text": "这里整理 AI 与游戏开发相关的学习笔记。",
     "crumbs": [
       "首页",
-      "AI",
-      "AI infra"
+      "Learning Notes"
+    ]
+  },
+  {
+    "objectID": "index.html#模块",
+    "href": "index.html#模块",
+    "title": "Learning Notes",
+    "section": "模块",
+    "text": "模块\n\nAI，包括 AI infra\n游戏开发，包括 图形学",
+    "crumbs": [
+      "首页",
+      "Learning Notes"
+    ]
+  },
+  {
+    "objectID": "notebooks/ai/index.html",
+    "href": "notebooks/ai/index.html",
+    "title": "JupyterLab · AI",
+    "section": "",
+    "text": "AI 相关的可执行学习笔记。",
+    "crumbs": [
+      "首页",
+      "JupyterLab",
+      "AI"
+    ]
+  },
+  {
+    "objectID": "notebooks/ai/index.html#笔记",
+    "href": "notebooks/ai/index.html#笔记",
+    "title": "JupyterLab · AI",
+    "section": "笔记",
+    "text": "笔记\n\nPosition Embedding",
+    "crumbs": [
+      "首页",
+      "JupyterLab",
+      "AI"
     ]
   }
 ]
