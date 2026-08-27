@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>transformer – Learning Notes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d5382f61a7c05c0e60b360404eaa31c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Learning Notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">首页</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ai" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">AI</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ai">    
+        <li>
+    <a class="dropdown-item" href="../../posts/ai/index.html">
+ <span class="dropdown-text">AI 总览</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/ai/infra/index.html">
+ <span class="dropdown-text">AI infra</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../notebooks/index.html"> 
+<span class="menu-text">JupyterLab</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">游戏开发</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../../posts/game-development/index.html">
+ <span class="dropdown-text">游戏开发总览</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/game-development/graphics/index.html">
+ <span class="dropdown-text">图形学</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notebooks/index.html">JupyterLab</a></li><li class="breadcrumb-item"><a href="../../notebooks/ai/index.html">AI</a></li><li class="breadcrumb-item"><a href="../../notebooks/ai/Transformer.html">Transformer</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning Notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../posts/ai/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/ai/infra/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI infra</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../notebooks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JupyterLab</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../notebooks/ai/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notebooks/ai/PositionEmbedding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Position Embedding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notebooks/ai/Transformer.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Transformer</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../posts/game-development/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">游戏开发</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../posts/game-development/graphics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">图形学</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/game-development/graphics/article-record/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">文章记录</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notebooks/index.html">JupyterLab</a></li><li class="breadcrumb-item"><a href="../../notebooks/ai/index.html">AI</a></li><li class="breadcrumb-item"><a href="../../notebooks/ai/Transformer.html">Transformer</a></li></ol></nav></header>
+
+
+
+
+<div id="016783d3-5796-4eb1-9863-68a7427235be" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:12.033749Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:12.033404Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:12.111795Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:12.111290Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>where python</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C:\Python314\python.exe</code></pre>
+</div>
+</div>
+<div id="e60d28a0-5cc1-4265-ac18-90829a9f981c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:12.113457Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:12.113295Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:12.143214Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:12.142672Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Python 3.14.6</code></pre>
+</div>
+</div>
+<div id="c168cfa0-6203-49ec-b2db-27cf8779e90c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:12.144647Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:12.144315Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.547904Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.547137Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> nn</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="paper-transformer-config" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.549486Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.549262Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.786249Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.785666Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Attention Is All You Need (2017) Base Transformer 配置</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PaperTransformer(nn.Transformer):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> num_parameters(<span class="va">self</span>, only_trainable<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            p.numel()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="va">self</span>.parameters()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> only_trainable <span class="kw">or</span> p.requires_grad</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> PaperTransformer(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    d_model<span class="op">=</span><span class="dv">512</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    nhead<span class="op">=</span><span class="dv">8</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    num_encoder_layers<span class="op">=</span><span class="dv">6</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    num_decoder_layers<span class="op">=</span><span class="dv">6</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    dim_feedforward<span class="op">=</span><span class="dv">2048</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    dropout<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    batch_first<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    norm_first<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(model))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class '__main__.PaperTransformer'&gt;</code></pre>
+</div>
+</div>
+<div id="paper-transformer-parameter-count" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.787966Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.787736Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.790878Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.790431Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'total parameters: </span><span class="sc">{</span>model<span class="sc">.</span>num_parameters()<span class="sc">:,}</span><span class="ss">'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'trainable parameters: </span><span class="sc">{</span>model<span class="sc">.</span>num_parameters(only_trainable<span class="op">=</span><span class="va">True</span>)<span class="sc">:,}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>total parameters: 44,140,544
+trainable parameters: 44,140,544</code></pre>
+</div>
+</div>
+<div id="paper-transformer-named-parameters" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.792313Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.792095Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.796987Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.796441Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, parameter <span class="kw">in</span> model.named_parameters():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'</span><span class="sc">{</span>name<span class="sc">:55s}</span><span class="ss"> '</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'shape=</span><span class="sc">{</span><span class="bu">str</span>(<span class="bu">tuple</span>(parameter.shape))<span class="sc">:18s}</span><span class="ss"> '</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'numel=</span><span class="sc">{</span>parameter<span class="sc">.</span>numel()<span class="sc">:,}</span><span class="ss">'</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>encoder.layers.0.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+encoder.layers.0.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+encoder.layers.0.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+encoder.layers.0.self_attn.out_proj.bias                shape=(512,)             numel=512
+encoder.layers.0.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+encoder.layers.0.linear1.bias                           shape=(2048,)            numel=2,048
+encoder.layers.0.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+encoder.layers.0.linear2.bias                           shape=(512,)             numel=512
+encoder.layers.0.norm1.weight                           shape=(512,)             numel=512
+encoder.layers.0.norm1.bias                             shape=(512,)             numel=512
+encoder.layers.0.norm2.weight                           shape=(512,)             numel=512
+encoder.layers.0.norm2.bias                             shape=(512,)             numel=512
+encoder.layers.1.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+encoder.layers.1.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+encoder.layers.1.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+encoder.layers.1.self_attn.out_proj.bias                shape=(512,)             numel=512
+encoder.layers.1.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+encoder.layers.1.linear1.bias                           shape=(2048,)            numel=2,048
+encoder.layers.1.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+encoder.layers.1.linear2.bias                           shape=(512,)             numel=512
+encoder.layers.1.norm1.weight                           shape=(512,)             numel=512
+encoder.layers.1.norm1.bias                             shape=(512,)             numel=512
+encoder.layers.1.norm2.weight                           shape=(512,)             numel=512
+encoder.layers.1.norm2.bias                             shape=(512,)             numel=512
+encoder.layers.2.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+encoder.layers.2.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+encoder.layers.2.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+encoder.layers.2.self_attn.out_proj.bias                shape=(512,)             numel=512
+encoder.layers.2.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+encoder.layers.2.linear1.bias                           shape=(2048,)            numel=2,048
+encoder.layers.2.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+encoder.layers.2.linear2.bias                           shape=(512,)             numel=512
+encoder.layers.2.norm1.weight                           shape=(512,)             numel=512
+encoder.layers.2.norm1.bias                             shape=(512,)             numel=512
+encoder.layers.2.norm2.weight                           shape=(512,)             numel=512
+encoder.layers.2.norm2.bias                             shape=(512,)             numel=512
+encoder.layers.3.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+encoder.layers.3.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+encoder.layers.3.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+encoder.layers.3.self_attn.out_proj.bias                shape=(512,)             numel=512
+encoder.layers.3.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+encoder.layers.3.linear1.bias                           shape=(2048,)            numel=2,048
+encoder.layers.3.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+encoder.layers.3.linear2.bias                           shape=(512,)             numel=512
+encoder.layers.3.norm1.weight                           shape=(512,)             numel=512
+encoder.layers.3.norm1.bias                             shape=(512,)             numel=512
+encoder.layers.3.norm2.weight                           shape=(512,)             numel=512
+encoder.layers.3.norm2.bias                             shape=(512,)             numel=512
+encoder.layers.4.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+encoder.layers.4.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+encoder.layers.4.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+encoder.layers.4.self_attn.out_proj.bias                shape=(512,)             numel=512
+encoder.layers.4.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+encoder.layers.4.linear1.bias                           shape=(2048,)            numel=2,048
+encoder.layers.4.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+encoder.layers.4.linear2.bias                           shape=(512,)             numel=512
+encoder.layers.4.norm1.weight                           shape=(512,)             numel=512
+encoder.layers.4.norm1.bias                             shape=(512,)             numel=512
+encoder.layers.4.norm2.weight                           shape=(512,)             numel=512
+encoder.layers.4.norm2.bias                             shape=(512,)             numel=512
+encoder.layers.5.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+encoder.layers.5.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+encoder.layers.5.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+encoder.layers.5.self_attn.out_proj.bias                shape=(512,)             numel=512
+encoder.layers.5.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+encoder.layers.5.linear1.bias                           shape=(2048,)            numel=2,048
+encoder.layers.5.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+encoder.layers.5.linear2.bias                           shape=(512,)             numel=512
+encoder.layers.5.norm1.weight                           shape=(512,)             numel=512
+encoder.layers.5.norm1.bias                             shape=(512,)             numel=512
+encoder.layers.5.norm2.weight                           shape=(512,)             numel=512
+encoder.layers.5.norm2.bias                             shape=(512,)             numel=512
+encoder.norm.weight                                     shape=(512,)             numel=512
+encoder.norm.bias                                       shape=(512,)             numel=512
+decoder.layers.0.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+decoder.layers.0.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+decoder.layers.0.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+decoder.layers.0.self_attn.out_proj.bias                shape=(512,)             numel=512
+decoder.layers.0.multihead_attn.in_proj_weight          shape=(1536, 512)        numel=786,432
+decoder.layers.0.multihead_attn.in_proj_bias            shape=(1536,)            numel=1,536
+decoder.layers.0.multihead_attn.out_proj.weight         shape=(512, 512)         numel=262,144
+decoder.layers.0.multihead_attn.out_proj.bias           shape=(512,)             numel=512
+decoder.layers.0.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+decoder.layers.0.linear1.bias                           shape=(2048,)            numel=2,048
+decoder.layers.0.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+decoder.layers.0.linear2.bias                           shape=(512,)             numel=512
+decoder.layers.0.norm1.weight                           shape=(512,)             numel=512
+decoder.layers.0.norm1.bias                             shape=(512,)             numel=512
+decoder.layers.0.norm2.weight                           shape=(512,)             numel=512
+decoder.layers.0.norm2.bias                             shape=(512,)             numel=512
+decoder.layers.0.norm3.weight                           shape=(512,)             numel=512
+decoder.layers.0.norm3.bias                             shape=(512,)             numel=512
+decoder.layers.1.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+decoder.layers.1.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+decoder.layers.1.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+decoder.layers.1.self_attn.out_proj.bias                shape=(512,)             numel=512
+decoder.layers.1.multihead_attn.in_proj_weight          shape=(1536, 512)        numel=786,432
+decoder.layers.1.multihead_attn.in_proj_bias            shape=(1536,)            numel=1,536
+decoder.layers.1.multihead_attn.out_proj.weight         shape=(512, 512)         numel=262,144
+decoder.layers.1.multihead_attn.out_proj.bias           shape=(512,)             numel=512
+decoder.layers.1.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+decoder.layers.1.linear1.bias                           shape=(2048,)            numel=2,048
+decoder.layers.1.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+decoder.layers.1.linear2.bias                           shape=(512,)             numel=512
+decoder.layers.1.norm1.weight                           shape=(512,)             numel=512
+decoder.layers.1.norm1.bias                             shape=(512,)             numel=512
+decoder.layers.1.norm2.weight                           shape=(512,)             numel=512
+decoder.layers.1.norm2.bias                             shape=(512,)             numel=512
+decoder.layers.1.norm3.weight                           shape=(512,)             numel=512
+decoder.layers.1.norm3.bias                             shape=(512,)             numel=512
+decoder.layers.2.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+decoder.layers.2.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+decoder.layers.2.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+decoder.layers.2.self_attn.out_proj.bias                shape=(512,)             numel=512
+decoder.layers.2.multihead_attn.in_proj_weight          shape=(1536, 512)        numel=786,432
+decoder.layers.2.multihead_attn.in_proj_bias            shape=(1536,)            numel=1,536
+decoder.layers.2.multihead_attn.out_proj.weight         shape=(512, 512)         numel=262,144
+decoder.layers.2.multihead_attn.out_proj.bias           shape=(512,)             numel=512
+decoder.layers.2.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+decoder.layers.2.linear1.bias                           shape=(2048,)            numel=2,048
+decoder.layers.2.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+decoder.layers.2.linear2.bias                           shape=(512,)             numel=512
+decoder.layers.2.norm1.weight                           shape=(512,)             numel=512
+decoder.layers.2.norm1.bias                             shape=(512,)             numel=512
+decoder.layers.2.norm2.weight                           shape=(512,)             numel=512
+decoder.layers.2.norm2.bias                             shape=(512,)             numel=512
+decoder.layers.2.norm3.weight                           shape=(512,)             numel=512
+decoder.layers.2.norm3.bias                             shape=(512,)             numel=512
+decoder.layers.3.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+decoder.layers.3.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+decoder.layers.3.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+decoder.layers.3.self_attn.out_proj.bias                shape=(512,)             numel=512
+decoder.layers.3.multihead_attn.in_proj_weight          shape=(1536, 512)        numel=786,432
+decoder.layers.3.multihead_attn.in_proj_bias            shape=(1536,)            numel=1,536
+decoder.layers.3.multihead_attn.out_proj.weight         shape=(512, 512)         numel=262,144
+decoder.layers.3.multihead_attn.out_proj.bias           shape=(512,)             numel=512
+decoder.layers.3.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+decoder.layers.3.linear1.bias                           shape=(2048,)            numel=2,048
+decoder.layers.3.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+decoder.layers.3.linear2.bias                           shape=(512,)             numel=512
+decoder.layers.3.norm1.weight                           shape=(512,)             numel=512
+decoder.layers.3.norm1.bias                             shape=(512,)             numel=512
+decoder.layers.3.norm2.weight                           shape=(512,)             numel=512
+decoder.layers.3.norm2.bias                             shape=(512,)             numel=512
+decoder.layers.3.norm3.weight                           shape=(512,)             numel=512
+decoder.layers.3.norm3.bias                             shape=(512,)             numel=512
+decoder.layers.4.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+decoder.layers.4.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+decoder.layers.4.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+decoder.layers.4.self_attn.out_proj.bias                shape=(512,)             numel=512
+decoder.layers.4.multihead_attn.in_proj_weight          shape=(1536, 512)        numel=786,432
+decoder.layers.4.multihead_attn.in_proj_bias            shape=(1536,)            numel=1,536
+decoder.layers.4.multihead_attn.out_proj.weight         shape=(512, 512)         numel=262,144
+decoder.layers.4.multihead_attn.out_proj.bias           shape=(512,)             numel=512
+decoder.layers.4.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+decoder.layers.4.linear1.bias                           shape=(2048,)            numel=2,048
+decoder.layers.4.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+decoder.layers.4.linear2.bias                           shape=(512,)             numel=512
+decoder.layers.4.norm1.weight                           shape=(512,)             numel=512
+decoder.layers.4.norm1.bias                             shape=(512,)             numel=512
+decoder.layers.4.norm2.weight                           shape=(512,)             numel=512
+decoder.layers.4.norm2.bias                             shape=(512,)             numel=512
+decoder.layers.4.norm3.weight                           shape=(512,)             numel=512
+decoder.layers.4.norm3.bias                             shape=(512,)             numel=512
+decoder.layers.5.self_attn.in_proj_weight               shape=(1536, 512)        numel=786,432
+decoder.layers.5.self_attn.in_proj_bias                 shape=(1536,)            numel=1,536
+decoder.layers.5.self_attn.out_proj.weight              shape=(512, 512)         numel=262,144
+decoder.layers.5.self_attn.out_proj.bias                shape=(512,)             numel=512
+decoder.layers.5.multihead_attn.in_proj_weight          shape=(1536, 512)        numel=786,432
+decoder.layers.5.multihead_attn.in_proj_bias            shape=(1536,)            numel=1,536
+decoder.layers.5.multihead_attn.out_proj.weight         shape=(512, 512)         numel=262,144
+decoder.layers.5.multihead_attn.out_proj.bias           shape=(512,)             numel=512
+decoder.layers.5.linear1.weight                         shape=(2048, 512)        numel=1,048,576
+decoder.layers.5.linear1.bias                           shape=(2048,)            numel=2,048
+decoder.layers.5.linear2.weight                         shape=(512, 2048)        numel=1,048,576
+decoder.layers.5.linear2.bias                           shape=(512,)             numel=512
+decoder.layers.5.norm1.weight                           shape=(512,)             numel=512
+decoder.layers.5.norm1.bias                             shape=(512,)             numel=512
+decoder.layers.5.norm2.weight                           shape=(512,)             numel=512
+decoder.layers.5.norm2.bias                             shape=(512,)             numel=512
+decoder.layers.5.norm3.weight                           shape=(512,)             numel=512
+decoder.layers.5.norm3.bias                             shape=(512,)             numel=512
+decoder.norm.weight                                     shape=(512,)             numel=512
+decoder.norm.bias                                       shape=(512,)             numel=512</code></pre>
+</div>
+</div>
+<div id="paper-transformer-forward" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.798336Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.798114Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.834323Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.833816Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 用随机 embedding 验证 Encoder-Decoder 前向计算</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>src <span class="op">=</span> torch.randn(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">512</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>tgt <span class="op">=</span> torch.randn(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">512</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    output <span class="op">=</span> model(src, tgt)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'input src shape: </span><span class="sc">{</span><span class="bu">tuple</span>(src.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'input tgt shape: </span><span class="sc">{</span><span class="bu">tuple</span>(tgt.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'output shape: </span><span class="sc">{</span><span class="bu">tuple</span>(output.shape)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>input src shape: (2, 20, 512)
+input tgt shape: (2, 10, 512)
+output shape: (2, 10, 512)</code></pre>
+</div>
+</div>
+<div id="paper-transformer-dimension-flow" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.835801Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.835587Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.925130Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.924601Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看 token id 经过 Embedding、Transformer、输出层后的维度变化</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>batch_size <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>src_seq_length <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>tgt_seq_length <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>vocab_size <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>d_model <span class="op">=</span> <span class="dv">512</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 输入是整数 token id，不是 one-hot 向量</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>src_ids <span class="op">=</span> torch.randint(<span class="dv">0</span>, vocab_size, (batch_size, src_seq_length))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>tgt_ids <span class="op">=</span> torch.randint(<span class="dv">0</span>, vocab_size, (batch_size, tgt_seq_length))</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 词嵌入： [B, L] -&gt; [B, L, d_model]</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>token_embedding <span class="op">=</span> nn.Embedding(vocab_size, d_model)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>src_emb <span class="op">=</span> token_embedding(src_ids)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>tgt_emb <span class="op">=</span> token_embedding(tgt_ids)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer：输入和输出的最后一维都是 d_model</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    hidden_states <span class="op">=</span> model(src_emb, tgt_emb)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 输出投影到词表： [B, tgt_L, d_model] -&gt; [B, tgt_L, vocab_size]</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>output_projection <span class="op">=</span> nn.Linear(d_model, vocab_size)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>logits <span class="op">=</span> output_projection(hidden_states)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'src_ids:          </span><span class="sc">{</span><span class="bu">tuple</span>(src_ids.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'tgt_ids:          </span><span class="sc">{</span><span class="bu">tuple</span>(tgt_ids.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'src_emb:          </span><span class="sc">{</span><span class="bu">tuple</span>(src_emb.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'tgt_emb:          </span><span class="sc">{</span><span class="bu">tuple</span>(tgt_emb.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'hidden_states:    </span><span class="sc">{</span><span class="bu">tuple</span>(hidden_states.shape)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'logits:           </span><span class="sc">{</span><span class="bu">tuple</span>(logits.shape)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>src_ids:          (2, 20)
+tgt_ids:          (2, 10)
+src_emb:          (2, 20, 512)
+tgt_emb:          (2, 10, 512)
+hidden_states:    (2, 10, 512)
+logits:           (2, 10, 10000)</code></pre>
+</div>
+</div>
+<div id="show-multihead-attention" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.926716Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.926503Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.934215Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.933789Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 显示 Encoder 第 0 层的 MultiheadAttention 和每个 head 的权重</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>attn <span class="op">=</span> model.encoder.layers[<span class="dv">0</span>].self_attn</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(attn)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'num_heads:'</span>, attn.num_heads)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'head_dim:'</span>, attn.head_dim)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'in_proj_weight:'</span>, <span class="bu">tuple</span>(attn.in_proj_weight.shape))</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'out_proj.weight:'</span>, <span class="bu">tuple</span>(attn.out_proj.weight.shape))</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>batch_size <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>seq_length <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.randn(batch_size, seq_length, attn.embed_dim)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    attn_output, attn_weights <span class="op">=</span> attn(</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        x, x, x,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        need_weights<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        average_attn_weights<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'input:'</span>, <span class="bu">tuple</span>(x.shape))</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'attn_output:'</span>, <span class="bu">tuple</span>(attn_output.shape))</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'attn_weights:'</span>, <span class="bu">tuple</span>(attn_weights.shape))</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'第 0 个样本、第 0 个 head 的局部权重:'</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(attn_weights[<span class="dv">0</span>, <span class="dv">0</span>, :<span class="dv">3</span>, :<span class="dv">5</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MultiheadAttention(
+  (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+)
+num_heads: 8
+head_dim: 64
+in_proj_weight: (1536, 512)
+out_proj.weight: (512, 512)
+input: (2, 20, 512)
+attn_output: (2, 20, 512)
+attn_weights: (2, 8, 20, 20)
+第 0 个样本、第 0 个 head 的局部权重:
+tensor([[0.0909, 0.0843, 0.0615, 0.0354, 0.0235],
+        [0.0432, 0.0562, 0.1543, 0.0195, 0.0314],
+        [0.0509, 0.0614, 0.1142, 0.0529, 0.0579]])</code></pre>
+</div>
+</div>
+<div id="show-qkv-weights" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-08-26T01:54:13.935608Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-08-26T01:54:13.935459Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-08-26T01:54:13.963871Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-08-26T01:54:13.963333Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PyTorch 将 Q、K、V 的 weight/bias 合并在 in_proj_weight/in_proj_bias 中</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>q_weight, k_weight, v_weight <span class="op">=</span> attn.in_proj_weight.chunk(<span class="dv">3</span>, dim<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>q_bias, k_bias, v_bias <span class="op">=</span> attn.in_proj_bias.chunk(<span class="dv">3</span>, dim<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Q weight:'</span>, <span class="bu">tuple</span>(q_weight.shape))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'K weight:'</span>, <span class="bu">tuple</span>(k_weight.shape))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'V weight:'</span>, <span class="bu">tuple</span>(v_weight.shape))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Q bias:'</span>, <span class="bu">tuple</span>(q_bias.shape))</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'K bias:'</span>, <span class="bu">tuple</span>(k_bias.shape))</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'V bias:'</span>, <span class="bu">tuple</span>(v_bias.shape))</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Q weight 前 2 行、前 5 列:'</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(q_weight[:<span class="dv">2</span>, :<span class="dv">5</span>])</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">K weight 前 2 行、前 5 列:'</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(k_weight[:<span class="dv">2</span>, :<span class="dv">5</span>])</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">V weight 前 2 行、前 5 列:'</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v_weight[:<span class="dv">2</span>, :<span class="dv">5</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Q weight: (512, 512)
+K weight: (512, 512)
+V weight: (512, 512)
+Q bias: (512,)
+K bias: (512,)
+V bias: (512,)
+
+Q weight 前 2 行、前 5 列:
+tensor([[-0.0113,  0.0116,  0.0222, -0.0261,  0.0070],
+        [-0.0377, -0.0433,  0.0251, -0.0264,  0.0136]],
+       grad_fn=&lt;SliceBackward0&gt;)
+
+K weight 前 2 行、前 5 列:
+tensor([[ 0.0288, -0.0206,  0.0398,  0.0207, -0.0449],
+        [-0.0276,  0.0046, -0.0386, -0.0298, -0.0135]],
+       grad_fn=&lt;SliceBackward0&gt;)
+
+V weight 前 2 行、前 5 列:
+tensor([[-0.0506,  0.0390,  0.0365,  0.0390, -0.0515],
+        [ 0.0321, -0.0216, -0.0040,  0.0175,  0.0274]],
+       grad_fn=&lt;SliceBackward0&gt;)</code></pre>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/57one\.github\.io\/learning-notes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
