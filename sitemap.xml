@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://57one.github.io/learning-notes/posts/game-development/graphics/article-record/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.488Z</lastmod>
+    <loc>https://57one.github.io/learning-notes/posts/game-development/graphics/games202/index.html</loc>
+    <lastmod>2026-09-08T16:37:26.953Z</lastmod>
   </url>
   <url>
-    <loc>https://57one.github.io/learning-notes/posts/game-development/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.489Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/posts/ai/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.421Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/notebooks/ai/Transformer.html</loc>
-    <lastmod>2026-09-07T15:55:57.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/notebooks/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.416Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/notebooks/ai/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/notebooks/ai/PositionEmbedding.html</loc>
-    <lastmod>2026-09-07T15:55:57.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://57one.github.io/learning-notes/posts/ai/infra/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.421Z</lastmod>
+    <loc>https://57one.github.io/learning-notes/posts/game-development/graphics/graphics-basics/index.html</loc>
+    <lastmod>2026-09-08T16:37:27.586Z</lastmod>
   </url>
   <url>
     <loc>https://57one.github.io/learning-notes/posts/game-development/graphics/index.html</loc>
-    <lastmod>2026-09-07T15:55:57.489Z</lastmod>
+    <lastmod>2026-09-08T16:37:27.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/posts/ai/infra/index.html</loc>
+    <lastmod>2026-09-08T16:37:23.108Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/notebooks/ai/PositionEmbedding.html</loc>
+    <lastmod>2026-09-08T16:37:23.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/notebooks/ai/index.html</loc>
+    <lastmod>2026-09-08T16:37:23.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/index.html</loc>
+    <lastmod>2026-09-08T16:37:23.096Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/notebooks/index.html</loc>
+    <lastmod>2026-09-08T16:37:23.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/notebooks/ai/Transformer.html</loc>
+    <lastmod>2026-09-08T16:37:23.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/posts/ai/index.html</loc>
+    <lastmod>2026-09-08T16:37:23.108Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/posts/game-development/index.html</loc>
+    <lastmod>2026-09-08T16:37:27.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/posts/game-development/graphics/games104/index.html</loc>
+    <lastmod>2026-09-08T16:37:26.461Z</lastmod>
+  </url>
+  <url>
+    <loc>https://57one.github.io/learning-notes/posts/game-development/graphics/article-record/index.html</loc>
+    <lastmod>2026-09-08T16:37:23.172Z</lastmod>
   </url>
 </urlset>
